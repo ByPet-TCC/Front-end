@@ -4,6 +4,7 @@ const IndexStyle =  StyleSheet.create({
     container: {
         display: 'flex',
         fontFamily: 'Poppins',
+        fontSize: '555px',
     },
 
     ImageBackground: {
