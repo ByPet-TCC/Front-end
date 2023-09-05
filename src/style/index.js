@@ -5,10 +5,13 @@ const IndexStyle =  StyleSheet.create({
         display: 'flex',
         fontFamily: 'Poppins',
         fontSize: '555px',
+        position: 'absolute',
+        alignSelf: 'center',
+        bottom: '15px'
     },
 
     ImageBackground: {
-        height: '100%'
+        height: '100%',
     },
 
     textTitulo: {
