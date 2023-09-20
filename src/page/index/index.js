@@ -14,13 +14,13 @@ const Index = ({navigation}) => {
               <Text style={IndexStyle.textDesc}>Conectando você ao seu Pet</Text>
 
               <View>
-                <TouchableOpacity style={IndexStyle.button} onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity style={IndexStyle.button} onPress={() => navigation.navigate('Login')}>
                   <Text style={IndexStyle.textBtn}>
                     Bem vindo de volta
                   </Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={IndexStyle.button}>
+                <TouchableOpacity style={IndexStyle.button} onPress={() => navigation.navigate('CadastroPet')}>
                   <Text style={IndexStyle.textBtn}>
                     Criar conta
                   </Text>

@@ -52,7 +52,13 @@ const HomeStyle = StyleSheet.create ({
         justifyContent: 'flex-end',
     },
 
-    
+    add: {
+        alignSelf: 'center',
+        width: '100%',
+        height: '100%',
+        maxHeight: '95px',
+        maxWidth: '95px',
+    },
 
     textPetNovo: {
         textAlign: 'center',
@@ -82,6 +88,34 @@ const HomeStyle = StyleSheet.create ({
         paddingTop: '120px'
     },
 
+    boxBottom: {
+        padding: 3,
+        rowGap: 5,
+        width: '100%',
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.50)',
+        borderRadius: 25,
+    },
+
+    textPet: {
+        textAlign: 'center',
+        fontFamily: 'khula',
+        fontWeight: 'bold',
+        fontSize: 25,
+        padding: 18,
+        paddingBottom: 15,
+    },
+
+    bottom: {
+        fontFamily: 'Poppins',
+        fontSize: '20px',
+        color: 'white',
+        pointerEvents: 'auto',
+        backgroundColor: '#333030',
+        padding: 15,
+        textAlign: 'center'
+    },
+
     paw: {
         display: 'flex',
         backgroundColor: '#0FC2BF',
@@ -95,9 +129,11 @@ const HomeStyle = StyleSheet.create ({
         width: '100px',
         height: '75px',
         position: 'absolute',
+        float: 'right',
         bottom: 55,
         right: 35,
-        transform: [{rotate: '-45deg'}]
+        transform: [{rotate: '-45deg'}],
+        resizeMode: 'center',
     },
     
 });
