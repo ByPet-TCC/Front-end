@@ -1,21 +1,31 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
+import {Text, View, TouchableOpacity, Image} from 'react-native';
+import { useState } from 'react';
+
 import IndexStyle from '../../style';
+import Formulario from '../formulario/formulario';
 
 
 export function Login ({ navigation }) {
+  const [email, setEmail] = useState ('');
+  const [senha, setSenha] = useState ('');
+
     return (
-      <View>
-        <Image></Image>
+      <View style={IndexStyle.contentLogin}>
+        <Image source={require('../../../assets/icons/Login/logo.png')} style={IndexStyle.logo}></Image>
         
-        <Text>Login</Text>
+        <Text style={IndexStyle.textTopo}>Login</Text>
         
-        <TextInput style={IndexStyle.caixaTexto}
-            placeholder='E-mail'
+        <Formulario
+          espaço='E-mail'
+          valor={email}
+          onChangeText={(novoEmail) => setEmail(novoEmail)}
         />
-        
-        <TextInput style={IndexStyle.caixaTexto}
-            placeholder='Senha'
+
+        <Formulario
+          espaço='Senha'
+          valor={senha}
+          onChangeText={(novaSenha) => setSenha(novaSenha)}
         />
 
         <TouchableOpacity>

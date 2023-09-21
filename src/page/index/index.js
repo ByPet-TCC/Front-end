@@ -13,7 +13,7 @@ const Index = ({navigation}) => {
               <Text style={IndexStyle.textTitulo}>BY PET</Text>
               <Text style={IndexStyle.textDesc}>Conectando você ao seu Pet</Text>
 
-              <View>
+              <View style={IndexStyle.gradiente}>
                 <TouchableOpacity style={IndexStyle.button} onPress={() => navigation.navigate('Login')}>
                   <Text style={IndexStyle.textBtn}>
                     Bem vindo de volta

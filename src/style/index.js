@@ -14,6 +14,14 @@ const IndexStyle =  StyleSheet.create({
         height: '100%',
     },
 
+    logo: {
+        maxHeight: '100%',
+        height: 85,
+        maxWidth: '100%',
+        width: 85,
+        alignSelf: 'center'
+    },
+
     textTitulo: {
         color: 'white',
         fontSize: '32px',
@@ -67,6 +75,21 @@ const IndexStyle =  StyleSheet.create({
         paddingLeft: 10,
         fontSize: 24
     },
+
+    contentLogin: {
+        borderRadius: 800
+    },
+
+    contentCadastro: {
+
+    },
+
+    textTopo:{
+        color: '#3C3A3A',
+        fontFamily: 'Poppins',
+        fontSize: 40,
+        textAlign: 'center'
+    }
 })
 
 export default IndexStyle;
