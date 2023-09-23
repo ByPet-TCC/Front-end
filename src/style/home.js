@@ -2,8 +2,9 @@ import { StyleSheet } from "react-native";
 
 const HomeStyle = StyleSheet.create ({
     container: {
-        flexGrow: 1,
-        backgroundColor: '#E1FFFF'
+        flex: 1,
+        position: 'relative',
+        backgroundColor: '#E1FFFF',
     },
 
     desenho: {
@@ -73,7 +74,7 @@ const HomeStyle = StyleSheet.create ({
         width: 175,
         height: 215,
         borderRadius: 25,
-        backgroundColor: "blue",
+        borderWidth: 2,
         shadowColor: '#000',
         shadowOffset: { width: 3.5, height: 3.5 },
         shadowOpacity: 0.25,
@@ -117,7 +118,6 @@ const HomeStyle = StyleSheet.create ({
     },
 
     paw: {
-        display: 'flex',
         backgroundColor: '#0FC2BF',
         borderColor: '#015A58',
         borderWidth: 3,
@@ -129,11 +129,11 @@ const HomeStyle = StyleSheet.create ({
         width: '100px',
         height: '75px',
         position: 'absolute',
-        float: 'right',
-        bottom: 55,
-        right: 35,
+        bottom: 10,
+        right: 10,
         transform: [{rotate: '-45deg'}],
-        resizeMode: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     
 });

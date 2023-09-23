@@ -1,46 +1,44 @@
-import React from 'react';
-import {Text, View, ScrollView, TouchableOpacity, TextInput, Image, ImageBackground, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet} from 'react-native';
 import CadastroStyle from '../../style/cadastroPet';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+
+import TextFormulario from '../../component/formulario/textform';
 
 const Cadastro = ({navigation}) => {
-  const nome = () => {
-    <View>
-      <Text>
-        Teste
-      </Text>
-    </View>
-  }
+  const [nomePet, setNomePet] = useState('');
+  const [raca, setRaca] = useState ('');
+  const [rga, setRga] = useState ('');
+  const [idade, setIdade] = useState ('');
+  const [descr, setDescr] = useState ('');
 
     return(
         <View style={CadastroStyle.content}>
           <View style={CadastroStyle.CaixaBranca}>
-            <Text style={CadastroStyle.TextoPerg}>
-              Insira o nome do Pet
-            </Text>
-            <TextInput style={CadastroStyle.caixaTexto}
-              placeholder='Nome'
+            <TextFormulario 
+              texto='Insira o nome do Pet'
+              espaço='Nome'
+              onChangeText={(novoNomePet) => setNomePet(novoNomePet)}
+              valor={nomePet}
             />
 
             <Text style={CadastroStyle.TextoPerg}>
               Insira a especie do Pet
             </Text>
             <View style={CadastroStyle.seleRaca}>
-              <TouchableOpacity>
+              <Pressable>
               <Image style={CadastroStyle.img} source={require('../../../assets/icons/gato.png')}/>
-              </TouchableOpacity>
+              </Pressable>
               <Image style={CadastroStyle.img} source={require('../../../assets/icons/cachorro.png')}/>
               <Image style={CadastroStyle.img} source={require('../../../assets/icons/coelho.png')}/>
               <Image style={CadastroStyle.img} source={require('../../../assets/icons/hamster.png')}/>
             </View>
 
-            <Text style={CadastroStyle.TextoPerg}>
-              Escolha a raça
-            </Text>
-            <TextInput style={CadastroStyle.caixaTexto}
-              placeholder='Raça'>
-            </TextInput>
+            <TextFormulario 
+              texto = 'Escolha a raça'
+              espaço = 'Raça'
+              onChangeText={(novoRaca) => setRaca(novoRaca)}
+              valor = {raca}
+            />
             
             <Text style={CadastroStyle.TextoPerg}>
               Qual o sexo do Pet?
@@ -50,12 +48,12 @@ const Cadastro = ({navigation}) => {
               <Image style={CadastroStyle.img} source={require('../../../assets/icons/cachorro.png')}/>
             </View>
 
-            <Text style={CadastroStyle.TextoPerg}>
-              RGA (Registro Geral Animal)
-            </Text>
-            <TextInput style={CadastroStyle.caixaTexto}
-              placeholder='XXX.XXX.XXX-5'>
-            </TextInput>
+            <TextFormulario 
+              texto = 'RGA (Registro Geral Animal)'
+              espaço = 'XXX.XXX.XXX-5'
+              onChangeText={(novoRga) => setRga(novoRga)}
+              valor = {rga}
+            />
           </View>
 
           <View style={CadastroStyle.CaixaBranca}>
@@ -66,12 +64,14 @@ const Cadastro = ({navigation}) => {
                 </Text>
               </View>
             </View>
-            <Text style={CadastroStyle.TextoPerg}>
-              Idade
-            </Text>
-            <TextInput style={CadastroStyle.caixaTexto}
-              placeholder='PET'>
-            </TextInput>
+
+            <TextFormulario 
+              texto = 'Idade'
+              espaço = 'Pet'
+              onChangeText={(novoIdade) => setIdade(novoIdade)}
+              valor = {idade}
+            />
+
           </View>
 
           <View style={CadastroStyle.CaixaBranca}>
@@ -81,15 +81,20 @@ const Cadastro = ({navigation}) => {
             <TextInput style={CadastroStyle.CaixaDesc}
               editable
               multiline
-              placeholder='Sobre o animal e informações relevantes'/>
+              placeholder='Sobre o animal e informações relevantes'
+              onChangeText={(novoDescr) => setDescr(novoDescr)}
+              value = {descr}
+            />
+
           </View>
 
           <View style={CadastroStyle.CaixaBranca}>
-            <TouchableOpacity style={CadastroStyle.Salvar}>
+            <Pressable style={CadastroStyle.Salvar}>
               <Text style={CadastroStyle.TextSalvar}>Salvar</Text>
-            </TouchableOpacity>
+            </Pressable>
             <Text style={CadastroStyle.Texto}>
-            *Sabia que o focinho do seu pet tem uma digital e ela é unica assim como a sua? Por isso é  importante importar a foto do focinho, assim conseguirá identificar seu pet.
+            *Sabia que o focinho do seu pet tem uma digital e ela é unica assim como a sua?
+             Por isso é  importante importar a foto do focinho, assim conseguirá identificar seu pet.
             </Text>
           </View>
         </View>

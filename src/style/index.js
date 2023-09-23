@@ -26,14 +26,14 @@ const IndexStyle =  StyleSheet.create({
         color: 'white',
         fontSize: '32px',
         fontWeight: 'bold',
-        textAlign: "center"
+        alignSelf: "center"
     },
 
     textDesc: {
         color: 'white',
         fontSize: '20px',
         fontWeight: 400,
-        textAlign: "center"
+        alignSelf: "center"
     },
 
     button: {
@@ -45,18 +45,13 @@ const IndexStyle =  StyleSheet.create({
         height: '50px',
         width:'50%',
         margin: '13px',
-
-        shadowColor: '#000',
-        shadowOffset: { width: 3.5, height: 3.5 },
-        shadowOpacity: 0.25,
-        shadowRadius: 1,
     },
 
     textBtn: {
         color: 'white',
         fontSize: "24px",
         fontWeight: 'bold',
-        textAlign: 'center',
+        alignSelf: 'center',
     },
 
     caixaTexto: {
@@ -68,7 +63,7 @@ const IndexStyle =  StyleSheet.create({
         borderBottomColor: '#3C3B3BCC',
         margin: 10,
 
-        textAlignVertical: 'Botton',
+        verticalAlign: 'Botton',
         placeholderTextColor: '#B4B2B2',
         fontFamily: 'Poppins',
         fontWeight: '400',
@@ -77,8 +72,20 @@ const IndexStyle =  StyleSheet.create({
     },
 
     contentLogin: {
+        marginTop: '30%',
         borderRadius: 800
     },
+
+    forget:{
+        alignSelf: 'flex-end',
+        margin: 10
+    },
+
+    forgetText:{
+        fontFamily: 'Poppins',
+        fontSize: 20,
+        color: '#0FC2BF'
+    },  
 
     contentCadastro: {
 
@@ -88,7 +95,7 @@ const IndexStyle =  StyleSheet.create({
         color: '#3C3A3A',
         fontFamily: 'Poppins',
         fontSize: 40,
-        textAlign: 'center'
+        alignSelf: 'center'
     }
 })
 

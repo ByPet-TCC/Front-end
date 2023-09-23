@@ -1,14 +1,16 @@
 import React from 'react';
-import {Text, View, Pressable, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
+import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
 
-const Formulario = ({ valor, onChangeText, espaço }) => {
+const TextFormulario = ({ valor, onChangeText, espaço, texto }) => {
     return (
         <View>
+            <Text style={styles.TextoPerg}>
+              {texto}
+            </Text>
             <TextInput style={styles.caixaTexto}
                 placeholder={espaço}
                 value={valor}
                 onChangeText={onChangeText}
-                secureTextEntry={true}
             >
             </TextInput>
         </View>
@@ -16,6 +18,15 @@ const Formulario = ({ valor, onChangeText, espaço }) => {
 };
 
 const styles = StyleSheet.create({
+    TextoPerg: {
+        fontFamily: 'Poppins',
+        color: '#008F8D',
+        fontSize: 22,
+        paddingLeft: '3%',
+        paddingVertical: 5,
+        marginTop: 15
+    },
+    
     caixaTexto: {
         alignSelf: 'center',
         width: '95%',
@@ -34,4 +45,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Formulario;
+export default TextFormulario;

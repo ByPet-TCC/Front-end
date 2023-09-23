@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, Image} from 'react-native';
+import { Text, View, Pressable, Image} from 'react-native';
 import { useState } from 'react';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
+import TextFormulario from '../formulario/textform';
 
 
 export function Login ({ navigation }) {
@@ -16,10 +17,11 @@ export function Login ({ navigation }) {
         
         <Text style={IndexStyle.textTopo}>Login</Text>
         
-        <Formulario
+        <TextFormulario
           espaço='E-mail'
           valor={email}
           onChangeText={(novoEmail) => setEmail(novoEmail)}
+          secureTextEntry={false}
         />
 
         <Formulario
@@ -28,15 +30,17 @@ export function Login ({ navigation }) {
           onChangeText={(novaSenha) => setSenha(novaSenha)}
         />
 
-        <TouchableOpacity>
-            <Text>Esqueci minha senha</Text>
-        </TouchableOpacity>
+        <Pressable style={IndexStyle.forget}>
+            <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
+        </Pressable>
 
-        <TouchableOpacity style={IndexStyle.button} onPress={ () => navigation.push('Home') }>
+        <Pressable style={IndexStyle.button} onPress={ () => navigation.push('Home') }>
             <Text style={IndexStyle.textBtn}>Entrar</Text>
-        </TouchableOpacity>
+        </Pressable>
 
         <Text>Ou faça login com:</Text>
+
+        
       </View>
     );
   }
