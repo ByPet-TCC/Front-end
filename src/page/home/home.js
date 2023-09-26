@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Text, View, ScrollView, Pressable, Image, ImageBackground, StyleSheet, FlatList } from 'react-native';
 import NovoPet from '../../component/Pet/pet';
 
-import HomeStyle from '../../style/home';
+import HomeStyle from '../../style/home'
 
 const Home = ({navigation}) => {
     const [pet, setPet] = useState([]);
@@ -57,6 +57,8 @@ const Home = ({navigation}) => {
                     <View style={HomeStyle.pet}>
 
                     </View>
+
+                    <NovoPet />
                 </View>
             </ScrollView>
 

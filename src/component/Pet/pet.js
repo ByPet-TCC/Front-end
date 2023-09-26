@@ -1,24 +1,37 @@
 import React, { useState } from 'react';
 import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet} from 'react-native';
 
+
 const NovoPet = ({ pet }) => {
-    return (
+    const [visivel, setVisivel] = useState(false);
+
+    const[nomePet, setNomePet] = useState('');
+
+        return (
             <View>
-                <View style={style.pet}>
-                    <View style={style.boxBottom}>
-                        <Text style={style.textPet}>{pet.nomePet}</Text>
-                        <Pressable>
-                            <Text style={style.bottom}>
-                                Perfil
-                            </Text>
-                        </Pressable>
-                        <Pressable>
-                            <Text style={style.bottom}>
-                                Vacinas
-                            </Text>
-                        </Pressable>
+                <Pressable onPress={() => setVisivel(!visivel)} activeOpacity={1}>
+                    <View style={style.pet}>
+                    
                     </View>
-                </View>
+                </Pressable>
+
+                {visivel && (
+                    <View style={style.petOn}>
+                        <View style={style.boxBottom}>
+                            <Text style={style.textPet}>{nomePet}</Text>
+                            <Pressable>
+                                <Text style={style.bottom}>
+                                    Perfil
+                                </Text>
+                            </Pressable>
+                             <Pressable>
+                                <Text style={style.bottom}>
+                                    Vacinas
+                                </Text>
+                            </Pressable>
+                        </View>
+                    </View>
+                )};
             </View>
             )
 };
@@ -33,6 +46,13 @@ const style = StyleSheet.create ({
         shadowOffset: { width: 3.5, height: 3.5 },
         shadowOpacity: 0.25,
         shadowRadius: 1,
+    },
+
+    petOn: {
+        position: 'absolute',
+        width: 175,
+        height: 215,
+        borderRadius: 25,
     },
 
     boxBottom: {
@@ -62,6 +82,7 @@ const style = StyleSheet.create ({
         padding: 15,
         textAlign: 'center'
     },
+
 });
 
 export default NovoPet;

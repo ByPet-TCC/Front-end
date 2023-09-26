@@ -17,7 +17,7 @@ const Index = ({navigation}) => {
                   </Text>
                 </Pressable>
 
-                <Pressable style={IndexStyle.button} onPress={() => navigation.navigate('CadastroPet')}>
+                <Pressable style={IndexStyle.button} onPress={() => navigation.navigate('Cadastro')}>
                   <Text style={IndexStyle.textBtn}>
                     Criar conta
                   </Text>

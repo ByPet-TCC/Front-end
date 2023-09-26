@@ -95,7 +95,8 @@ const IndexStyle =  StyleSheet.create({
         color: '#3C3A3A',
         fontFamily: 'Poppins',
         fontSize: 40,
-        alignSelf: 'center'
+        alignSelf: 'center',
+        fontWeight: 'bold'
     }
 })
 
