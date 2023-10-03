@@ -38,9 +38,21 @@ export function Login ({ navigation }) {
             <Text style={IndexStyle.textBtn}>Entrar</Text>
         </Pressable>
 
-        <Text>Ou faça login com:</Text>
+        <Text style={IndexStyle.textIcon}>Ou faça login com:</Text>
 
-        
+        <View style={IndexStyle.logos}>
+                  <Pressable>
+                      <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx}/>
+                   </Pressable>
+
+                  <Pressable>
+                      <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx}/>
+                  </Pressable>
+
+                  <Pressable>
+                    <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx}/>
+                  </Pressable>
+              </View>
       </View>
     );
   }

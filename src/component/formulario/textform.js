@@ -23,8 +23,7 @@ const styles = StyleSheet.create({
         color: '#008F8D',
         fontSize: 22,
         paddingLeft: '3%',
-        paddingVertical: 5,
-        marginTop: 15
+        marginTop: 5
     },
     
     caixaTexto: {

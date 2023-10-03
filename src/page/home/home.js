@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Text, View, ScrollView, Pressable, Image, ImageBackground, StyleSheet, FlatList } from 'react-native';
 import NovoPet from '../../component/Pet/pet';
+import Paw from '../../component/Paw/paw';
 
 import HomeStyle from '../../style/home'
 
@@ -32,39 +33,14 @@ const Home = ({navigation}) => {
                     </View>
                     </Pressable>
 
-                    <FlatList
-                        data = {pet}
-                        renderItem={({ pet }) => <NovoPet pet = {pet} />}
-                        keyExtractor={ pet => pet.id}
-                    />
-
-
-                    <View style={HomeStyle.pet}>
-                        <View style={HomeStyle.boxBottom}>
-                            <Text style={HomeStyle.textPet}>Nome PET</Text>
-                            <Pressable>
-                                <Text style={HomeStyle.bottom}>
-                                    Perfil
-                                </Text>
-                            </Pressable>
-                            <Pressable>
-                                <Text style={HomeStyle.bottom}>
-                                    Vacinas
-                                </Text>
-                            </Pressable>
-                        </View>
-                    </View>
-                    <View style={HomeStyle.pet}>
-
-                    </View>
+                    
 
                     <NovoPet />
+                    <NovoPet /><NovoPet /><NovoPet /><NovoPet />
                 </View>
             </ScrollView>
 
-            <Pressable style={HomeStyle.paw}>
-                
-            </Pressable>
+            <Paw></Paw>
             
 
         </View>

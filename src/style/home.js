@@ -5,17 +5,19 @@ const HomeStyle = StyleSheet.create ({
         flex: 1,
         position: 'relative',
         backgroundColor: '#E1FFFF',
+        overflow: 'hidden'
     },
 
     desenho: {
         backgroundColor: 'black',
         display: 'flex',
         position: 'relative',
-        with: '100%',
+        width: '100%',
         height: 380,
         borderBottomRightRadius: '80px',
         borderBottomLeftRadius: '80px'
     },
+
 
     perfil: {
         display: 'flex',
@@ -30,6 +32,7 @@ const HomeStyle = StyleSheet.create ({
     },
 
     content: {
+        flexGrow: 1,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -37,7 +40,7 @@ const HomeStyle = StyleSheet.create ({
         columnGap: 15,
         justifyContent: 'space-around',
         alignSelf: 'center',
-        maxWidth: '85%',
+        maxWidth: '90%',
         margin: 10,
         flex: 1
     },
@@ -51,6 +54,7 @@ const HomeStyle = StyleSheet.create ({
         shadowOpacity: 0.25,
         shadowRadius: 1,
         justifyContent: 'flex-end',
+        flexBasis: '100'
     },
 
     add: {
@@ -116,26 +120,6 @@ const HomeStyle = StyleSheet.create ({
         padding: 15,
         textAlign: 'center'
     },
-
-    paw: {
-        backgroundColor: '#0FC2BF',
-        borderColor: '#015A58',
-        borderWidth: 3,
-        borderTopLeftRadius: '50%',
-        borderTopRightRadius: '50%',
-        borderBottomLeftRadius: '40%',
-        borderBottomRightRadius: '40%',
-
-        width: '100px',
-        height: '75px',
-        position: 'absolute',
-        bottom: 10,
-        right: 10,
-        transform: [{rotate: '-45deg'}],
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    
 });
 
 export default HomeStyle;

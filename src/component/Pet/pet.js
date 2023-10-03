@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet} from 'react-native';
+import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet, modal} from 'react-native';
 
 
 const NovoPet = ({ pet }) => {

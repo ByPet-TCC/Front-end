@@ -22,11 +22,11 @@ export function Cadastro ({ navigation }) {
                     espaço={'E-mail'}
                 />
 
-                <TextFormulario
+                <Formulario
                     espaço={'Senha'}
                 />
 
-                <TextFormulario
+                <Formulario
                     espaço={'Repita a sua senha'}
                 />
                 
@@ -34,19 +34,19 @@ export function Cadastro ({ navigation }) {
                     <Text style={IndexStyle.textBtn}>Cadastro</Text>
                 </Pressable>
 
-                <Text>Se cadastre com</Text>
+                <Text style={IndexStyle.textIcon}>Se cadastre com</Text>
 
-                <View>
+                <View style={IndexStyle.logos}>
                     <Pressable>
-                        <Image source={require('../../../assets/icons/Login/icon_facebook.png')}/>
+                        <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx}/>
                     </Pressable>
 
                     <Pressable>
-                        <Image source={require('../../../assets/icons/Login/icon_facebook.png')}/>
+                        <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx}/>
                     </Pressable>
 
                     <Pressable>
-                        <Image source={require('../../../assets/icons/Login/icon_facebook.png')}/>
+                        <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx}/>
                     </Pressable>
                 </View>
             </View>

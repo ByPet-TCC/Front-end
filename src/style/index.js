@@ -33,7 +33,7 @@ const IndexStyle =  StyleSheet.create({
         color: 'white',
         fontSize: '20px',
         fontWeight: 400,
-        alignSelf: "center"
+        alignSelf: "center",
     },
 
     button: {
@@ -72,7 +72,6 @@ const IndexStyle =  StyleSheet.create({
     },
 
     contentLogin: {
-        marginTop: '30%',
         borderRadius: 800
     },
 
@@ -87,17 +86,38 @@ const IndexStyle =  StyleSheet.create({
         color: '#0FC2BF'
     },  
 
-    contentCadastro: {
-
-    },
-
     textTopo:{
         color: '#3C3A3A',
         fontFamily: 'Poppins',
         fontSize: 40,
         alignSelf: 'center',
         fontWeight: 'bold'
-    }
+    },
+
+    textIcon:{
+        fontSize: 28,
+        fontFamily: 'Poppins',
+        textAlign: 'center',
+        color: '#3C3A3A',
+        padding: 20,
+    },
+
+    logos: {
+        alignSelf: 'center',
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        flexDirection: 'row',
+        width: '80%',
+        },
+
+    logoEx: {
+        maxHeight: '100%',
+        height: 70,
+        maxWidth: '100%',
+        width: 70,
+        
+    },
 })
 
 export default IndexStyle;
