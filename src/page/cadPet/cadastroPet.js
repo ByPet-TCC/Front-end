@@ -3,9 +3,14 @@ import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, St
 import CadastroStyle from '../../style/cadastroPet';
 
 import TextFormulario from '../../component/formulario/textform';
+import SeleGen from '../../component/SeleGen/seleGenero';
+import SeleRaca from '../../component/SeleRaca/seleRaca';
 
 const Cadastro = ({navigation}) => {
   const [nomePet, setNomePet] = useState('');
+
+  const [imagemRaca, setImagemRaca] = useState(null);
+
   const [raca, setRaca] = useState ('');
   const [rga, setRga] = useState ('');
   const [idade, setIdade] = useState ('');
@@ -21,17 +26,7 @@ const Cadastro = ({navigation}) => {
               valor={nomePet}
             />
 
-            <Text style={CadastroStyle.TextoPerg}>
-              Insira a especie do Pet
-            </Text>
-            <View style={CadastroStyle.seleRaca}>
-              <Pressable>
-              <Image style={CadastroStyle.img} source={require('../../../assets/icons/gato.png')}/>
-              </Pressable>
-              <Image style={CadastroStyle.img} source={require('../../../assets/icons/cachorro.png')}/>
-              <Image style={CadastroStyle.img} source={require('../../../assets/icons/coelho.png')}/>
-              <Image style={CadastroStyle.img} source={require('../../../assets/icons/hamster.png')}/>
-            </View>
+            <SeleRaca />
 
             <TextFormulario 
               texto = 'Escolha a raça'
@@ -40,13 +35,7 @@ const Cadastro = ({navigation}) => {
               valor = {raca}
             />
             
-            <Text style={CadastroStyle.TextoPerg}>
-              Qual o sexo do Pet?
-            </Text>
-            <View style={CadastroStyle.seleRaca}>
-              <Image style={CadastroStyle.img} source={require('../../../assets/icons/gato.png')}/>
-              <Image style={CadastroStyle.img} source={require('../../../assets/icons/cachorro.png')}/>
-            </View>
+            <SeleGen />
 
             <TextFormulario 
               texto = 'RGA (Registro Geral Animal)'

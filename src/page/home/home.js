@@ -6,7 +6,14 @@ import Paw from '../../component/Paw/paw';
 import HomeStyle from '../../style/home'
 
 const Home = ({navigation}) => {
+    const [usuario, setUsuario] = useState('');
     const [pet, setPet] = useState([]);
+
+    useEffect(() => {
+        fetch('')
+            .then(response => response.json())
+            .then(data => setUsuario(data));
+    },'');
 
     useEffect(() => {
         fetch('')
@@ -16,13 +23,13 @@ const Home = ({navigation}) => {
 
     return(
         <View style={HomeStyle.container}>
-            <ScrollView>
+            <ScrollView style={HomeStyle.scrollView}>
                 <View style={HomeStyle.desenho}>
                     <View style={HomeStyle.perfil}/>
                 </View>
 
                 <Text style={HomeStyle.text}>
-                    Pet's 'Sobrenome usuario'
+                    Pet's {usuario}
                 </Text>
 
                 <View style={HomeStyle.content}>    

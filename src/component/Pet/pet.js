@@ -38,20 +38,21 @@ const NovoPet = ({ pet }) => {
 
 const style = StyleSheet.create ({
     pet: {
-        width: 175,
-        height: 215,
+        width: 140,
+        height: 172,
         borderRadius: 25,
         borderWidth: 2,
         shadowColor: '#000',
         shadowOffset: { width: 3.5, height: 3.5 },
         shadowOpacity: 0.25,
         shadowRadius: 1,
+        flexBasis: '100'
     },
 
     petOn: {
         position: 'absolute',
-        width: 175,
-        height: 215,
+        width: 140,
+        height: 172,
         borderRadius: 25,
     },
 
