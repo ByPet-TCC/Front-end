@@ -55,7 +55,7 @@ const Cadastro = ({navigation}) => {
             </View>
 
             <TextFormulario 
-              texto = 'Idade'
+              texto = 'Idade aproximada'
               espaço = 'Pet'
               onChangeText={(novoIdade) => setIdade(novoIdade)}
               valor = {idade}

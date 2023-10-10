@@ -72,7 +72,13 @@ const IndexStyle =  StyleSheet.create({
     },
 
     contentLogin: {
-        borderRadius: 800
+        backgroundColor: 'white',
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
+        position: 'absolute',
+        bottom: 25,
+        width: '100%',
+        padding: 35,
     },
 
     forget:{
@@ -118,6 +124,11 @@ const IndexStyle =  StyleSheet.create({
         width: 70,
         
     },
+    
+    modal: {
+        width: '100%',
+        height: '100%'
+    }
 })
 
 export default IndexStyle;

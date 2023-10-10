@@ -47,7 +47,7 @@ const Home = ({navigation}) => {
                 </View>
             </ScrollView>
 
-            <Paw></Paw>
+            <Paw/>
             
 
         </View>

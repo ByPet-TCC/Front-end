@@ -13,7 +13,7 @@ const HomeStyle = StyleSheet.create ({
         display: 'flex',
         position: 'relative',
         width: '100%',
-        height: 380,
+        height: 650,
         borderBottomRightRadius: '80px',
         borderBottomLeftRadius: '80px'
     },

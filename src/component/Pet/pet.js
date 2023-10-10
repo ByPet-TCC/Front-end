@@ -76,7 +76,7 @@ const style = StyleSheet.create ({
 
     bottom: {
         fontFamily: 'Poppins',
-        fontSize: '20px',
+        fontSize: '15px',
         color: 'white',
         pointerEvents: 'auto',
         backgroundColor: '#333030',
