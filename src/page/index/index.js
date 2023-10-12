@@ -36,13 +36,6 @@ const Index = ({navigation}) => {
                 transparent={true}
                 visible={modalLogin}
               > 
-<<<<<<< Updated upstream
-                <Login/>
-                <TouchableHighlight
-                  onPress={() => {
-                  setModalLogin(!modalLogin);
-                }}><Text style={IndexStyle.modal}></Text></TouchableHighlight>
-=======
                 <Pressable style={IndexStyle.modal}
                   onPress={() => {
                   setModalLogin(!modalLogin);
@@ -65,8 +58,6 @@ const Index = ({navigation}) => {
                 <Cadastro
                   nav={() => navigation.navigate('Home')}
                 />
-
->>>>>>> Stashed changes
               </Modal>
             </View>
 
