@@ -7,7 +7,7 @@ import Formulario from '../formulario/formulario';
 import TextFormulario from '../formulario/textform';
 
 
-export function Login1 ({ navigation }) {
+const Login = ({ nav }) => {
   const [email, setEmail] = useState ('');
   const [senha, setSenha] = useState ('');
 
@@ -34,15 +34,15 @@ export function Login1 ({ navigation }) {
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
         </Pressable>
 
-        <Pressable style={IndexStyle.button} onPress={ () => navigation.push('Home') }>
-            <Text style={IndexStyle.textBtn}>Entrar</Text>
+        <Pressable style={IndexStyle.button} >
+            <Text style={IndexStyle.textBtn} onPress={nav}>Entrar</Text>
         </Pressable>
 
         <Text style={IndexStyle.textIcon}>Ou faça login com:</Text>
 
         <View style={IndexStyle.logos}>
                   <Pressable>
-                      <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx}/>
+                      <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} />
                    </Pressable>
 
                   <Pressable>
@@ -56,3 +56,4 @@ export function Login1 ({ navigation }) {
       </View>
     );
   }
+export default Login;

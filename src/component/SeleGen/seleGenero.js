@@ -8,17 +8,26 @@ const SeleGen = ({}) => {
     const female = genero === 'female' ? 'female_selecionada.png' : 'female.png';
     
     return (
-        <View style ={{}}>
+        <View>
             <Text style={style.TextoPerg}>
               Qual o sexo do Pet?
             </Text>
             <View style={style.seleRaca}>
+<<<<<<< Updated upstream
                 <Pressable style={style.img} onPress={ () => setGen('male')}>
                     <Image source={require (`../../../assets/icons/genero/${male}`)}/>
                 </Pressable>
 
                 <Pressable style={style.img} onPress={ () => setGen('female')}>
                     <Image source={require (`../../../assets/icons/genero/${female}`)}/>
+=======
+                <Pressable style={style.botao} onPress={ () => setGen('male')}>
+                    <Image source={icons[male]} style={style.img}/>
+                </Pressable>
+
+                <Pressable style={style.botao} onPress={ () => setGen('female')}>
+                    <Image source={icons[female]} style={style.img}/>
+>>>>>>> Stashed changes
                 </Pressable>
             </View>
         </View>
@@ -36,23 +45,23 @@ const style = StyleSheet.create ({
     },
 
     seleRaca: {
+        alignSelf: 'center',
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'nowrap',
-        overflow: 'auto',
-        justifyContent: 'space-around',
-        alignSelf: 'center',
-        width: '95%',
-        flex: 1
+        overflow: 'hidden',
+        justifyContent: 'space-evenly',
+        width: '85%',
+        flex: 1,
+    },
+
+    botao: {
+        width: 100,
+        height: 100
     },
 
     img: {
-        display: 'grid',
-        minHeight: 75,
-        minWidth: 75,
-        maxHeight: '100%',
-        maxWidth: '100%',
-        margin: 15
+        height: '100%',
+        width: '100%',
     },
 })
 

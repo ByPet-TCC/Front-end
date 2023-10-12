@@ -10,7 +10,7 @@ const NovoPet = ({ pet }) => {
         return (
             <View>
                 <Pressable onPress={() => setVisivel(!visivel)} activeOpacity={1}>
-                    <View style={style.pet}>
+                    <View style={[style.pet, style.sombra]}>
                     
                     </View>
                 </Pressable>
@@ -42,10 +42,6 @@ const style = StyleSheet.create ({
         height: 172,
         borderRadius: 25,
         borderWidth: 2,
-        shadowColor: '#000',
-        shadowOffset: { width: 3.5, height: 3.5 },
-        shadowOpacity: 0.25,
-        shadowRadius: 1,
         flexBasis: '100'
     },
 
@@ -66,7 +62,7 @@ const style = StyleSheet.create ({
     },
 
     textPet: {
-        textAlign: 'center',
+        textAlignVertical: 'center',
         fontFamily: 'khula',
         fontWeight: 'bold',
         fontSize: 25,
@@ -84,6 +80,13 @@ const style = StyleSheet.create ({
         textAlign: 'center'
     },
 
+    sombra: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        backgroundColor: '#0000',
+    },
 });
 
 export default NovoPet;

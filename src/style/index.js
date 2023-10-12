@@ -2,12 +2,17 @@ import { StyleSheet } from "react-native";
 
 const IndexStyle =  StyleSheet.create({
     container: {
+<<<<<<< Updated upstream
         display: 'flex',
         fontFamily: 'Poppins',
         fontSize: '555px',
+=======
+        bottom: 5,
+>>>>>>> Stashed changes
         position: 'absolute',
+        display: 'flex',
         alignSelf: 'center',
-        bottom: '15px'
+        padding: 25
     },
 
     ImageBackground: {
@@ -41,10 +46,10 @@ const IndexStyle =  StyleSheet.create({
         backgroundColor: '#0FC2BF', 
         alignSelf: 'center',
         justifyContent: 'center',
-        minWidth: '280px',
-        height: '50px',
+        minWidth: 280,
+        height: 50,
         width:'50%',
-        margin: '13px',
+        margin: 13,
     },
 
     textBtn: {
@@ -53,6 +58,7 @@ const IndexStyle =  StyleSheet.create({
         fontWeight: 'bold',
         alignSelf: 'center',
     },
+<<<<<<< Updated upstream
 
     caixaTexto: {
         alignSelf: 'center',
@@ -71,12 +77,15 @@ const IndexStyle =  StyleSheet.create({
         fontSize: 24
     },
 
+=======
+    
+>>>>>>> Stashed changes
     contentLogin: {
         backgroundColor: 'white',
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         position: 'absolute',
-        bottom: 25,
+        bottom: 0,
         width: '100%',
         padding: 35,
     },
@@ -127,7 +136,7 @@ const IndexStyle =  StyleSheet.create({
     
     modal: {
         width: '100%',
-        height: '100%'
+        height: '80%'
     }
 })
 

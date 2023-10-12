@@ -6,7 +6,11 @@ import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
 import TextFormulario from '../formulario/textform';
 
-export function Cadastro ({ navigation }) {
+const Cadastro=  ({ nav }) => {
+    const [nome, setNome] = useState('');
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
     
         return (
             <View style={IndexStyle.contentLogin}>
@@ -30,7 +34,7 @@ export function Cadastro ({ navigation }) {
                     espaço={'Repita a sua senha'}
                 />
                 
-                <Pressable style={IndexStyle.button} onPress={ () => navigation.push('Home') }>
+                <Pressable style={IndexStyle.button} onPress={ nav }>
                     <Text style={IndexStyle.textBtn}>Cadastro</Text>
                 </Pressable>
 
@@ -51,4 +55,6 @@ export function Cadastro ({ navigation }) {
                 </View>
             </View>
         )
-}
+};
+
+export default Cadastro;

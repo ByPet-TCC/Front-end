@@ -34,10 +34,10 @@ const Home = ({navigation}) => {
 
                 <View style={HomeStyle.content}>    
                     <Pressable onPress={ () => navigation.push('CadastroPet') }>
-                        <View style={HomeStyle.novoPet}>
+                        <View style={[HomeStyle.novoPet, HomeStyle.sombra]}>
                             <Image source={require('../../../assets/add.png')} style={HomeStyle.add}/>
                             <Text style={HomeStyle.textPetNovo}>Adicione um novo familiar</Text>
-                    </View>
+                        </View>
                     </Pressable>
 
                     
@@ -45,6 +45,7 @@ const Home = ({navigation}) => {
                     <NovoPet />
                     <NovoPet /><NovoPet /><NovoPet /><NovoPet />
                 </View>
+
             </ScrollView>
 
             <Paw/>

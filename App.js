@@ -6,7 +6,6 @@ import Index from "./src/page/index";
 import Home from './src/page/home/home';
 import CadastroPet from './src/page/cadPet/cadastroPet';
 
-import { Cadastro } from './src/component/Cadastro/cadastro';
 
 
 const Stack = createStackNavigator();
@@ -24,12 +23,6 @@ function App() {
         />
 
         <Stack.Screen 
-          name="Cadastro" 
-          component={Cadastro} 
-          options={{ header: () => null, cardStyleInterpolator: CardStyleInterpolators.forModalPresentationIOS}}
-        />
-
-        <Stack.Screen 
           name="Home" 
           component={Home} 
           options={{ header: () => null }}
@@ -37,7 +30,7 @@ function App() {
 
         <Stack.Screen 
           name="CadastroPet" 
-          component={CadastroPet} 
+          component={CadastroPet}
         />
 
       </Stack.Navigator>

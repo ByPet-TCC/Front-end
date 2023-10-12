@@ -16,19 +16,19 @@ const SeleRaca = ({}) => {
             </Text>
             <View style={style.seleRaca}>
                 <Pressable style={style.img} onPress={ () => setRaca('dog')}>
-                    <Image source={require (`../../../assets/icons/dog/${dog}`)}/>
+                    <Image source={icons[dog]} style={style.img}/>
                 </Pressable>
 
                 <Pressable style={style.img} onPress={ () => setRaca('cat')}>
-                    <Image source={require (`../../../assets/icons/cat/${cat}`)}/>
+                    <Image source={icons[cat]} style={style.img}/>
                 </Pressable>
 
                 <Pressable style={style.img} onPress={ () => setRaca('hamster')}>
-                    <Image source={require (`../../../assets/icons/hamster/${hamster}`)}/>
+                    <Image source={icons[hamster]} style={style.img}/>
                 </Pressable>
 
                 <Pressable style={style.img} onPress={ () => setRaca('rabit')}>
-                    <Image source={require (`../../../assets/icons/rabit/${rabit}`)}/>
+                    <Image source={icons[rabit]} style={style.img}/>
                 </Pressable>
             </View>
         </View>
@@ -50,21 +50,22 @@ const style = StyleSheet.create ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
-        overflow: 'auto',
-        justifyContent: 'space-around',
+        overflow: 'scroll',
+        justifyContent: 'space-evenly',
         alignSelf: 'center',
         width: '95%',
         flex: 1
     },
 
-    img: {
-        display: 'grid',
-        minHeight: 75,
-        minWidth: 75,
-        maxHeight: '100%',
-        maxWidth: '100%',
-        margin: 15
+    botao: {
+        width: 85,
+        height: 85
     },
+
+    img: {
+        height: '100%',
+        width: '100%',
+    }
 })
 
 export default SeleRaca;

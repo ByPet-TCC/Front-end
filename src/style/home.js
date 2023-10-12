@@ -9,13 +9,19 @@ const HomeStyle = StyleSheet.create ({
     },
 
     desenho: {
-        backgroundColor: 'black',
+        borderWidth: 1,
         display: 'flex',
         position: 'relative',
         width: '100%',
+<<<<<<< Updated upstream
         height: 650,
         borderBottomRightRadius: '80px',
         borderBottomLeftRadius: '80px'
+=======
+        height: 600,
+        borderBottomRightRadius: 80,
+        borderBottomLeftRadius: 80
+>>>>>>> Stashed changes
     },
 
 
@@ -23,9 +29,15 @@ const HomeStyle = StyleSheet.create ({
         display: 'flex',
         backgroundColor: 'white',
         borderWidth: 2,
+<<<<<<< Updated upstream
         borderRadius: '60px',
         width: '140px',
         height: '180px',
+=======
+        borderRadius: 60,
+        width: 140,
+        height: 180,
+>>>>>>> Stashed changes
         justifyContent: 'center',
         alignSelf: 'center',
         top: '80%',
@@ -42,27 +54,31 @@ const HomeStyle = StyleSheet.create ({
         alignSelf: 'center',
         maxWidth: '90%',
         margin: 10,
-        flex: 1
+        flex: 1,
     },
 
     novoPet: {
         width: 140,
         height: 172,
-        borderRadius: 25,
-        shadowColor: '#000',
-        shadowOffset: { width: 3.5, height: 3.5 },
-        shadowOpacity: 0.25,
-        shadowRadius: 1,
+        borderRadius: 15,
         justifyContent: 'flex-end',
-        flexBasis: '100'
+        borderWidth: .2
+    },
+
+    sombra: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        backgroundColor: '#0000',
     },
 
     add: {
         alignSelf: 'center',
         width: '100%',
         height: '100%',
-        maxHeight: '95px',
-        maxWidth: '95px',
+        maxHeight: 95,
+        maxWidth: 95,
     },
 
     textPetNovo: {
@@ -83,15 +99,21 @@ const HomeStyle = StyleSheet.create ({
         shadowOffset: { width: 3.5, height: 3.5 },
         shadowOpacity: 0.25,
         shadowRadius: 1,
-        flexBasis: '100'
     },
 
     text: {
         fontFamily: 'khula',
         fontWeight: 'bold',
+<<<<<<< Updated upstream
         textAlign: 'center',
         fontSize: '30px',
         paddingTop: '120px'
+=======
+        tex: 'center',
+        fontSize: 30,
+        paddingTop: 120,
+        textAlign: 'center'
+>>>>>>> Stashed changes
     },
 
     boxBottom: {
@@ -123,7 +145,7 @@ const HomeStyle = StyleSheet.create ({
     },
 
     scrollView: {
-        bottom: 150
+        marginBottom: 50
     }
 });
 
