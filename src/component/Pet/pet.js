@@ -18,20 +18,20 @@ const NovoPet = ({ pet }) => {
                 {visivel && (
                     <View style={style.petOn}>
                         <View style={style.boxBottom}>
-                            <Text style={style.textPet}>{nomePet}</Text>
-                            <Pressable>
-                                <Text style={style.bottom}>
+                            <Text style={style.textPet}> {nomePet} </Text>
+                            <Pressable style={style.bottom}>
+                                <Text style={style.textbottom}>
                                     Perfil
                                 </Text>
                             </Pressable>
-                             <Pressable>
-                                <Text style={style.bottom}>
+                             <Pressable style={style.bottom}>
+                                <Text style={style.textbottom}>
                                     Vacinas
                                 </Text>
                             </Pressable>
                         </View>
                     </View>
-                )};
+                )}
             </View>
             )
 };
@@ -40,49 +40,54 @@ const style = StyleSheet.create ({
     pet: {
         width: 140,
         height: 172,
-        borderRadius: 25,
-        borderWidth: 2,
-        flexBasis: '100'
+        borderRadius: 15,
+        borderWidth: .2
     },
 
     petOn: {
         position: 'absolute',
         width: 140,
         height: 172,
-        borderRadius: 25,
+        borderRadius: 15,
     },
 
     boxBottom: {
-        padding: 3,
+        display: 'flex',
+        paddingVertical: 3,
         rowGap: 5,
         width: '100%',
         height: '100%',
         backgroundColor: 'rgba(0, 0, 0, 0.50)',
-        borderRadius: 25,
+        borderRadius: 15,
+        alignContent: 'center',
+        justifyContent: 'center'
     },
 
     textPet: {
-        textAlignVertical: 'center',
-        fontFamily: 'khula',
+        textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 25,
-        padding: 18,
-        paddingBottom: 15,
+        height: '25%',
+        width: '100%'
     },
 
     bottom: {
-        fontFamily: 'Poppins',
-        fontSize: '15px',
-        color: 'white',
-        pointerEvents: 'auto',
         backgroundColor: '#333030',
-        padding: 15,
-        textAlign: 'center'
+        width: '100%',
+    },
+
+    textbottom: {
+        fontSize: 16,
+        color: 'white',
+        textAlign: 'center',
+        paddingVertical: 10,
+        width: '100%',
+        height: '100%',
     },
 
     sombra: {
         shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
+        shadowOffset: { width: 2, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         backgroundColor: '#0000',

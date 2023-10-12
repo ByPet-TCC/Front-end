@@ -8,10 +8,7 @@ import SeleRaca from '../../component/SeleRaca/seleRaca';
 
 const Cadastro = ({navigation}) => {
   const [nomePet, setNomePet] = useState('');
-
-  const [imagemRaca, setImagemRaca] = useState(null);
-
-  const [raca, setRaca] = useState ('');
+  const [raca, setRaca] = useState('');
   const [rga, setRga] = useState ('');
   const [idade, setIdade] = useState ('');
   const [descr, setDescr] = useState ('');

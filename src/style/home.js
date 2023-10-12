@@ -13,15 +13,9 @@ const HomeStyle = StyleSheet.create ({
         display: 'flex',
         position: 'relative',
         width: '100%',
-<<<<<<< Updated upstream
-        height: 650,
-        borderBottomRightRadius: '80px',
-        borderBottomLeftRadius: '80px'
-=======
         height: 600,
         borderBottomRightRadius: 80,
         borderBottomLeftRadius: 80
->>>>>>> Stashed changes
     },
 
 
@@ -29,15 +23,9 @@ const HomeStyle = StyleSheet.create ({
         display: 'flex',
         backgroundColor: 'white',
         borderWidth: 2,
-<<<<<<< Updated upstream
-        borderRadius: '60px',
-        width: '140px',
-        height: '180px',
-=======
         borderRadius: 60,
         width: 140,
         height: 180,
->>>>>>> Stashed changes
         justifyContent: 'center',
         alignSelf: 'center',
         top: '80%',
@@ -104,16 +92,10 @@ const HomeStyle = StyleSheet.create ({
     text: {
         fontFamily: 'khula',
         fontWeight: 'bold',
-<<<<<<< Updated upstream
-        textAlign: 'center',
-        fontSize: '30px',
-        paddingTop: '120px'
-=======
         tex: 'center',
         fontSize: 30,
         paddingTop: 120,
         textAlign: 'center'
->>>>>>> Stashed changes
     },
 
     boxBottom: {

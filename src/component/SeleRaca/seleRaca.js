@@ -4,10 +4,21 @@ import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextIn
 const SeleRaca = ({}) => {
     const [raca, setRaca] = useState (null);
 
-    const dog = raca === 'dog' ? 'dog_selecionada.png' : 'dog.png';
-    const cat = raca === 'cat' ? 'cat_selecionada.png' : 'cat.png';
-    const hamster = raca === 'hamster' ? 'hamster_selecionada.png' : 'hamster.png';
-    const rabit = raca === 'rabit' ? 'rabit_selecionada.png' : 'rabit.png';
+    const icons = {
+        dog: require('../../../assets/icons/dog/dog.png'),
+        dog_selecionada: require('../../../assets/icons/dog/dog_selecionada.png'),
+        cat: require('../../../assets/icons/cat/cat.png'),
+        cat_selecionada: require('../../../assets/icons/cat/cat_selecionada.png'),
+        hamster: require('../../../assets/icons/hamster/hamster.png'),
+        hamster_selecionada: require('../../../assets/icons/hamster/hamster_selecionada.png'),
+        rabit: require('../../../assets/icons/rabit/rabit.png'),
+        rabit_selecionada: require('../../../assets/icons/rabit/rabit_selecionada.png'),
+      };
+
+    const dog = raca === 'dog' ? 'dog_selecionada' : 'dog';
+    const cat = raca === 'cat' ? 'cat_selecionada' : 'cat';
+    const hamster = raca === 'hamster' ? 'hamster_selecionada' : 'hamster';
+    const rabit = raca === 'rabit' ? 'rabit_selecionada' : 'rabit';
     
     return (
         <View style ={{}}>
@@ -15,19 +26,19 @@ const SeleRaca = ({}) => {
               Selecione a especie
             </Text>
             <View style={style.seleRaca}>
-                <Pressable style={style.img} onPress={ () => setRaca('dog')}>
+                <Pressable style={style.botao} onPress={ () => setRaca('dog')}>
                     <Image source={icons[dog]} style={style.img}/>
                 </Pressable>
 
-                <Pressable style={style.img} onPress={ () => setRaca('cat')}>
+                <Pressable style={style.botao} onPress={ () => setRaca('cat')}>
                     <Image source={icons[cat]} style={style.img}/>
                 </Pressable>
 
-                <Pressable style={style.img} onPress={ () => setRaca('hamster')}>
+                <Pressable style={style.botao} onPress={ () => setRaca('hamster')}>
                     <Image source={icons[hamster]} style={style.img}/>
                 </Pressable>
 
-                <Pressable style={style.img} onPress={ () => setRaca('rabit')}>
+                <Pressable style={style.botao} onPress={ () => setRaca('rabit')}>
                     <Image source={icons[rabit]} style={style.img}/>
                 </Pressable>
             </View>
@@ -37,7 +48,6 @@ const SeleRaca = ({}) => {
 
 const style = StyleSheet.create ({
     TextoPerg: {
-        fontFamily: 'Poppins',
         color: '#008F8D',
         fontSize: 22,
         paddingLeft: '3%',
@@ -50,22 +60,23 @@ const style = StyleSheet.create ({
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
-        overflow: 'scroll',
-        justifyContent: 'space-evenly',
+        overflow: 'auto',
+        justifyContent: 'space-around',
         alignSelf: 'center',
         width: '95%',
         flex: 1
     },
 
     botao: {
-        width: 85,
-        height: 85
+        minHeight: 85,
+        minWidth: 85,
+        maxWidth: '33%',
     },
 
     img: {
-        height: '100%',
         width: '100%',
-    }
+        height: '100%'
+    },
 })
 
 export default SeleRaca;

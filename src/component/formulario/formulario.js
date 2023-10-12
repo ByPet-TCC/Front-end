@@ -9,6 +9,7 @@ const Formulario = ({ valor, onChangeText, espaço }) => {
                 value={valor}
                 onChangeText={onChangeText}
                 secureTextEntry={true}
+                placeholderTextColor= {'#B4B2B2'}
             >
             </TextInput>
         </View>
@@ -25,8 +26,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#3C3B3BCC',
         margin: 10,
 
-        textAlignVertical: 'Botton',
-        placeholderTextColor: '#B4B2B2',
+        textAlign: 'Botton',
         fontFamily: 'Poppins',
         fontWeight: '400',
         paddingLeft: 10,

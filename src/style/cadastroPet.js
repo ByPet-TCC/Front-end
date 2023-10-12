@@ -30,14 +30,7 @@ const CadastroStyle = StyleSheet.create ({
         borderRadius: 5,
         borderBottomColor: '#3C3B3BCC',
 
-<<<<<<< Updated upstream
-        textAlignVertical: 'Botton',
-        placeholderTextColor: '#B4B2B2',
-        fontFamily: 'Poppins',
-        fontWeight: '400',
-=======
         textAlign: 'Botton',
->>>>>>> Stashed changes
         paddingLeft: 10,
         fontSize: 24
     },
@@ -73,26 +66,14 @@ const CadastroStyle = StyleSheet.create ({
 
         textAlign: 'auto',
         justifyContent: 'flex-start',
-<<<<<<< Updated upstream
-        placeholderTextColor: '#B4B2B2',
-        fontFamily: 'Poppins',
-        fontWeight: '400',
-=======
->>>>>>> Stashed changes
         padding: 10,
         fontSize: 11,
     },
 
     Salvar:{
-<<<<<<< Updated upstream
-        width: '130px',
-        height: '37px',
-        borderRadius: '15px',
-=======
         width: 130,
         height: 37,
         borderRadius: 15,
->>>>>>> Stashed changes
         backgroundColor: 'rgba(15, 194, 191, 0.2)',
         alignSelf: 'flex-end',
         margin: 15,

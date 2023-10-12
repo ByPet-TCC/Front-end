@@ -4,30 +4,28 @@ import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextIn
 const SeleGen = ({}) => {
     const [genero, setGen] = useState (null);
 
-    const male = genero === 'male' ? 'male_selecionada.png' : 'male.png';
-    const female = genero === 'female' ? 'female_selecionada.png' : 'female.png';
+    const icons = {
+        male: require('../../../assets/icons/genero/male.png'),
+        male_selecionada: require('../../../assets/icons/genero/male_selecionada.png'),
+        female: require('../../../assets/icons/genero/female.png'),
+        female_selecionada: require('../../../assets/icons/genero/female_selecionada.png'),
+      };
+
+    const male = genero === 'male' ? 'male_selecionada' : 'male';
+    const female = genero === 'female' ? 'female_selecionada' : 'female';
     
     return (
-        <View>
+        <View style ={{}}>
             <Text style={style.TextoPerg}>
               Qual o sexo do Pet?
             </Text>
             <View style={style.seleRaca}>
-<<<<<<< Updated upstream
-                <Pressable style={style.img} onPress={ () => setGen('male')}>
-                    <Image source={require (`../../../assets/icons/genero/${male}`)}/>
-                </Pressable>
-
-                <Pressable style={style.img} onPress={ () => setGen('female')}>
-                    <Image source={require (`../../../assets/icons/genero/${female}`)}/>
-=======
                 <Pressable style={style.botao} onPress={ () => setGen('male')}>
                     <Image source={icons[male]} style={style.img}/>
                 </Pressable>
 
                 <Pressable style={style.botao} onPress={ () => setGen('female')}>
                     <Image source={icons[female]} style={style.img}/>
->>>>>>> Stashed changes
                 </Pressable>
             </View>
         </View>
@@ -36,7 +34,6 @@ const SeleGen = ({}) => {
 
 const style = StyleSheet.create ({
     TextoPerg: {
-        fontFamily: 'Poppins',
         color: '#008F8D',
         fontSize: 22,
         paddingLeft: '3%',
@@ -45,23 +42,25 @@ const style = StyleSheet.create ({
     },
 
     seleRaca: {
-        alignSelf: 'center',
         display: 'flex',
         flexDirection: 'row',
-        overflow: 'hidden',
-        justifyContent: 'space-evenly',
-        width: '85%',
-        flex: 1,
+        flexWrap: 'nowrap',
+        overflow: 'auto',
+        justifyContent: 'space-around',
+        alignSelf: 'center',
+        width: '95%',
+        flex: 1
     },
 
     botao: {
-        width: 100,
-        height: 100
+        minHeight: 85,
+        minWidth: 85,
+        maxWidth: '33%',
     },
 
     img: {
-        height: '100%',
         width: '100%',
+        height: '100%'
     },
 })
 
