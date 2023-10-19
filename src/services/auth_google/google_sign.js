@@ -1,45 +1,17 @@
 
+import { GoogleLogin, GoogleOAuthProvider } from '@react-oauth/google';
 
-//npm i @react-native-google-signin/google-signin
-export function Googlebutton ({ navigation }) {
+<GoogleOAuthProvider clientId="736920597440-dpnko0dvrq0une5t3bhhnfkc3t8l7hol.apps.googleusercontent.com">
+            <GoogleLogin
+              onSuccess={credentialResponse => {
 
-return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
+                let decoded = jwt_decode(credentialResponse.credential);
 
-          contentInsetAdjustmentBehavior="auto"
-          style={styles.scrollView}>
+                console.log(decoded);
+              }}
+              onError={() => {
+                console.log('Login Failed');
+              }}
 
-          <Header />
-
-          <View style={styles.body}>
-
-            <View style={styles.sectionContainer}>
-
-              <GoogleSigninButton
-
-                style={{width: 192, height: 48}}
-                size={GoogleSigninButton.Size.Wide}
-                color={GoogleSigninButton.Color.Dark}
-                onPress={this._signIn}
-
-              />
-            </View>
-            <View style={styles.buttonContainer}>
-
-              {!loggedIn && <Text>You are currently logged out</Text>}
-              {loggedIn && (
-                <Button
-                  onPress={this.signOut}
-                  title="LogOut"
-                  color="red"></Button>
-              )}
-            </View>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
-  )
-  };
+            />;
+          </GoogleOAuthProvider>

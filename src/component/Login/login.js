@@ -5,10 +5,29 @@ import { useState } from 'react';
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
 
+//Autenticador, Login , Sevidor configuração
 
-const Login = ({ nav, forg }) => {
-  const [email, setEmail] = useState ('');
-  const [senha, setSenha] = useState ('');
+import { auth } from "../../services/firebase/firebase";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
+const Login = ({ nav }) => {
+
+  const [email, setEmail] = useState("");
+  const [senha, setSenha] = useState("");
+  const [repass, setRepass] = useState("");
+
+  const auth = getAuth()
+  async function handleLog(e) {
+    e.preventDefault
+    signInWithEmailAndPassword(auth, email, senha)
+      .then((user) => {
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }; 
+>>>>>>> 137f8dfb1dce8d25b44b3a4006475148eb105ae5
 
     return (
       <View style={IndexStyle.contentLogin}>
@@ -16,6 +35,7 @@ const Login = ({ nav, forg }) => {
         
         <Text style={IndexStyle.textTopo}>Login</Text>
         
+<<<<<<< HEAD
         <Formulario
           espaço='E-mail'
           valor={email}
@@ -28,6 +48,20 @@ const Login = ({ nav, forg }) => {
           onChangeText={(novaSenha) => setSenha(novaSenha)}
           senha={true}
         />
+=======
+      <Text style={IndexStyle.textTopo}>Login</Text>
+
+      <TextFormulario
+        espaço='E-mail'
+        onChange={(e) => { setEmail(e.target.value) }}
+        secureTextEntry={false}
+      />
+
+      <Formulario
+        espaço='Senha'
+        onChange={(e) => { setSenha(e.target.value) }}
+      />
+>>>>>>> 137f8dfb1dce8d25b44b3a4006475148eb105ae5
 
         <Pressable style={IndexStyle.forget} onPress={forg}>
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
