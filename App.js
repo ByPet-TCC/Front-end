@@ -5,6 +5,10 @@ import { createStackNavigator, CardStyleInterpolators} from '@react-navigation/s
 import Index from "./src/page/index";
 import Home from './src/page/home/home';
 import CadastroPet from './src/page/cadPet/cadastroPet';
+import Senha from './src/page/senha/senha';
+
+import Test from './src/page/Test/test';
+
 
 
 
@@ -14,7 +18,7 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator // Declação das paginas que poderão ser navegadas
-        initialRouteName="Home" /* Definindo que o Index.js é a primeira tela */>
+        initialRouteName="Index" /* Definindo que o Index.js é a primeira tela */>
 
         <Stack.Screen /* Declaração da pagina */
           name="Index" /* Nomeando a Tela para ser chamada no projeto*/
@@ -33,6 +37,15 @@ function App() {
           component={CadastroPet}
         />
 
+        <Stack.Screen 
+          name="Senha" 
+          component={Senha}
+        />
+
+        <Stack.Screen 
+          name="Test" 
+          component={Test}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
