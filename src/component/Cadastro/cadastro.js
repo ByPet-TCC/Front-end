@@ -9,19 +9,6 @@ import TextFormulario from '../formulario/textform';
 const Cadastro = ({ nav }) => {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const [repass, setRepass] = useState("");
-
-    const auth = getAuth()
-    async function handleCad  (e) {
-        e.preventDefault
-        createUserWithEmailAndPassword(auth, email, senha)
-            .then((user) => {
-                console.log(user);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
 
     return (
         <View style={IndexStyle.contentLogin}>
@@ -29,14 +16,28 @@ const Cadastro = ({ nav }) => {
 
             <Text style={IndexStyle.textTopo}>Cadastro</Text>
 
+            <Formulario
+                espaço='Nome'
+                secureTextEntry={false}
+            />
+               
+            <Formulario
+                espaço='E-mail'
+                secureTextEntry={false}
+            />
+            <Formulario
+                espaço ='Senha'
+                secureTextEntry={false}
+            />
 
-                <Formulario
-                    espaço={'Repita a sua senha'}
-                />
-                
-                <Pressable style={IndexStyle.button} onPress={ nav }>
-                    <Text style={IndexStyle.textBtn}>Cadastro</Text>
-                </Pressable>
+            <Formulario
+                espaço='Repita a sua senha'
+                secureTextEntry={false}
+            />
+
+            <Pressable style={IndexStyle.button} onPress={nav}>
+                <Text style={IndexStyle.textBtn}>Cadastro</Text>
+            </Pressable>
 
             <Text style={IndexStyle.textIcon}>Se cadastre com</Text>
 
