@@ -40,7 +40,7 @@ const style = StyleSheet.create ({
     pet: {
         width: 140,
         height: 172,
-        borderRadius: 15,
+        borderRadius: 10,
         borderWidth: .2
     },
 
@@ -48,7 +48,6 @@ const style = StyleSheet.create ({
         position: 'absolute',
         width: 140,
         height: 172,
-        borderRadius: 15,
     },
 
     boxBottom: {
@@ -58,7 +57,7 @@ const style = StyleSheet.create ({
         width: '100%',
         height: '100%',
         backgroundColor: 'rgba(0, 0, 0, 0.50)',
-        borderRadius: 15,
+        borderRadius: 17,
         alignContent: 'center',
         justifyContent: 'center'
     },
@@ -74,6 +73,7 @@ const style = StyleSheet.create ({
     bottom: {
         backgroundColor: '#333030',
         width: '100%',
+        height: '25%'
     },
 
     textbottom: {

@@ -41,6 +41,7 @@ const Index = ({navigation}) => {
                   setModalLogin(!modalLogin);
                 }}><Text/></Pressable>
                 <Login
+                  forg={() => navigation.navigate('Senha')}
                   nav={() => navigation.navigate('Home')}
                 />
 

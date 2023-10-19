@@ -5,7 +5,6 @@ const IndexStyle =  StyleSheet.create({
         position: 'absolute',
         display: 'flex',
         alignSelf: 'center',
-        padding: 25,
         bottom: 25
     },
 
@@ -24,34 +23,35 @@ const IndexStyle =  StyleSheet.create({
 
     textTitulo: {
         color: 'white',
-        fontSize: '32px',
+        fontSize: 45,
         fontWeight: 'bold',
-        alignSelf: "center"
+        alignSelf: "center",
+        marginVertical: 5,
     },
 
     textDesc: {
         color: 'white',
-        fontSize: '20px',
-        fontWeight: 400,
+        fontSize: 20,
+        fontWeight: '400',
         alignSelf: "center",
+        marginVertical: 5
     },
 
     button: {
         borderRadius: 5,
-        backgroundColor: '#0FC2BF', 
-        alignSelf: 'center',
+        backgroundColor: '#0FC2BF',
         justifyContent: 'center',
-        minWidth: 280,
+        margin: 10,
+        minWidth: 260,
         height: 50,
-        maxWidth:'50%',
-        margin: 13,
+
     },
 
     textBtn: {
+        textAlign: 'center',
         color: 'white',
-        fontSize: "24px",
+        fontSize: 26,
         fontWeight: 'bold',
-        alignSelf: 'center',
     },
 
 
@@ -64,10 +64,7 @@ const IndexStyle =  StyleSheet.create({
         borderBottomColor: '#3C3B3BCC',
         margin: 10,
 
-        verticalAlign: 'Botton',
         placeholderTextColor: '#B4B2B2',
-        fontFamily: 'Poppins',
-        fontWeight: '400',
         paddingLeft: 10,
         fontSize: 24
     },
@@ -88,22 +85,19 @@ const IndexStyle =  StyleSheet.create({
     },
 
     forgetText:{
-        fontFamily: 'Poppins',
         fontSize: 20,
         color: '#0FC2BF'
     },  
 
     textTopo:{
         color: '#3C3A3A',
-        fontFamily: 'Poppins',
         fontSize: 40,
         alignSelf: 'center',
-        fontWeight: 'bold'
+        reight: 'bold'
     },
 
     textIcon:{
         fontSize: 28,
-        fontFamily: 'Poppins',
         textAlign: 'center',
         color: '#3C3A3A',
         padding: 20,

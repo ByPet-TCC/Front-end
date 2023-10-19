@@ -49,12 +49,12 @@ const style = StyleSheet.create ({
         justifyContent: 'space-around',
         alignSelf: 'center',
         width: '95%',
-        flex: 1
+        flex: 1,
     },
 
     botao: {
-        minHeight: 85,
-        minWidth: 85,
+        minHeight: 75,
+        minWidth: 75,
         maxWidth: '33%',
     },
 

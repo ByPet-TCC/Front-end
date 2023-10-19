@@ -14,7 +14,7 @@ const Cadastro = ({navigation}) => {
   const [descr, setDescr] = useState ('');
 
     return(
-        <View style={CadastroStyle.content}>
+        <ScrollView style={CadastroStyle.content}>
           <View style={CadastroStyle.CaixaBranca}>
             <TextFormulario 
               texto='Insira o nome do Pet'
@@ -39,6 +39,7 @@ const Cadastro = ({navigation}) => {
               espaço = 'XXX.XXX.XXX-5'
               onChangeText={(novoRga) => setRga(novoRga)}
               valor = {rga}
+              tipo = 'numeric'
             />
           </View>
 
@@ -56,6 +57,7 @@ const Cadastro = ({navigation}) => {
               espaço = 'Pet'
               onChangeText={(novoIdade) => setIdade(novoIdade)}
               valor = {idade}
+              tipo = 'numeric'
             />
 
           </View>
@@ -83,7 +85,7 @@ const Cadastro = ({navigation}) => {
              Por isso é  importante importar a foto do focinho, assim conseguirá identificar seu pet.
             </Text>
           </View>
-        </View>
+        </ScrollView>
     )
 }
 

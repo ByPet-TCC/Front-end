@@ -4,10 +4,9 @@ import { useState } from 'react';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
-import TextFormulario from '../formulario/textform';
 
 
-const Login = ({ nav }) => {
+const Login = ({ nav, forg }) => {
   const [email, setEmail] = useState ('');
   const [senha, setSenha] = useState ('');
 
@@ -17,25 +16,25 @@ const Login = ({ nav }) => {
         
         <Text style={IndexStyle.textTopo}>Login</Text>
         
-        <TextFormulario
+        <Formulario
           espaço='E-mail'
           valor={email}
           onChangeText={(novoEmail) => setEmail(novoEmail)}
-          secureTextEntry={false}
         />
 
         <Formulario
           espaço='Senha'
           valor={senha}
           onChangeText={(novaSenha) => setSenha(novaSenha)}
+          senha={true}
         />
 
-        <Pressable style={IndexStyle.forget}>
+        <Pressable style={IndexStyle.forget} onPress={forg}>
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
         </Pressable>
 
-        <Pressable style={IndexStyle.button} >
-            <Text style={IndexStyle.textBtn} onPress={nav}>Entrar</Text>
+        <Pressable style={IndexStyle.button} onPress={nav}>
+            <Text style={IndexStyle.textBtn}>Entrar</Text>
         </Pressable>
 
         <Text style={IndexStyle.textIcon}>Ou faça login com:</Text>

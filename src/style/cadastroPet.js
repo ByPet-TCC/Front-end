@@ -14,7 +14,6 @@ const CadastroStyle = StyleSheet.create ({
     },
 
     TextoPerg: {
-        fontFamily: 'Poppins',
         color: '#008F8D',
         fontSize: 22,
         paddingLeft: '3%',
@@ -35,26 +34,6 @@ const CadastroStyle = StyleSheet.create ({
         fontSize: 24
     },
 
-    seleRaca: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'nowrap',
-        overflow: 'auto',
-        justifyContent: 'space-around',
-        alignSelf: 'center',
-        width: '95%',
-        flex: 1
-    },
-
-    img: {
-        display: 'grid',
-        minHeight: 75,
-        minWidth: 75,
-        maxHeight: '100%',
-        maxWidth: '100%',
-        margin: 15
-    },
-
     CaixaDesc:{
         display: 'flex',
         alignSelf: 'center',
@@ -65,6 +44,7 @@ const CadastroStyle = StyleSheet.create ({
         borderColor: '#514F50',
 
         textAlign: 'auto',
+        textAlignVertical: 'top',
         justifyContent: 'flex-start',
         padding: 10,
         fontSize: 11,
@@ -83,13 +63,12 @@ const CadastroStyle = StyleSheet.create ({
     TextSalvar:{
         color: 'black',
         textAlign: 'center',
-        fontSize: '20px'
+        fontSize: 20
     },
 
     Texto: {
         alignSelf: 'center',
-        fontFamily: 'Poppins',
-        fontSize: '16px',
+        fontSize: 16,
         width: '85%',
         textAlign: 'center',
         justifyContent: 'center',

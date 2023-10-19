@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import {Text, View, Pressable, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
-import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
+import {Text, View, Image, ImageBackground, StyleSheet, Pressable, TouchableHighlight, Modal} from 'react-native';
+import IndexStyle from '../../style';
 
-const Paw = () => {
-    const [on, setOn] = useState(false);
-
-    return(
-        <View style={style.paw}>
+const Test = ({navigation}) => {
+    return (
+        <View style={{height: '100%', width: '100%'}}>
+            <View style={style.paw}>
                 <Pressable style={style.imageHome}>
                     <Image source={require('../../../assets/icons/Paw/home.png')} style={style.image}/>
                 </Pressable>
@@ -27,7 +26,8 @@ const Paw = () => {
                         <Image source={require('../../../assets/icons/Paw/paw.png')} style={style.image}/>
                 </Pressable>
             </View>
-    )
+        </View>
+    );
 };
 
 const style = StyleSheet.create({
@@ -51,37 +51,37 @@ const style = StyleSheet.create({
         height: 135,
     },
 
-    imageHome: {
+    imageConfig: {
         width: 63.45,
         height: 63.45,
         position: 'absolute',
         bottom: 5,
-        right: 147
-    },
-
-    imageCalendar: {
-        width: 63.45,
-        height: 63.45,
-        position: 'absolute',
-        bottom: 72,
-        right: 142
+        right: 150
     },
 
     imageHelp: {
         width: 63.45,
         height: 63.45,
         position: 'absolute',
-        bottom: 120,
-        right: 98
+        bottom: 70,
+        right: 140
     },
 
-    imageConfig: {
+    imageCalendar: {
         width: 63.45,
         height: 63.45,
         position: 'absolute',
-        bottom: 133,
-        right: 35
+        bottom: 123,
+        right: 100
+    },
+
+    imageHome: {
+        width: 63.45,
+        height: 63.45,
+        position: 'absolute',
+        bottom: 135,
+        right: 33
     },
 })
 
-export default Paw;
+export default Test;

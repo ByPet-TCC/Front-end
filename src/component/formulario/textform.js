@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
 
-const TextFormulario = ({ valor, onChangeText, espaço, texto }) => {
+const TextFormulario = ({ valor, onChangeText, espaço, texto, tipo }) => {
     return (
         <View>
             <Text style={styles.TextoPerg}>
@@ -12,6 +12,7 @@ const TextFormulario = ({ valor, onChangeText, espaço, texto }) => {
                 value={valor}
                 onChangeText={onChangeText}
                 placeholderTextColor= {'#B4B2B2'}
+                keyboardType={tipo}
             >
             </TextInput>
         </View>
@@ -20,7 +21,6 @@ const TextFormulario = ({ valor, onChangeText, espaço, texto }) => {
 
 const styles = StyleSheet.create({
     TextoPerg: {
-        fontFamily: 'Poppins',
         color: '#008F8D',
         fontSize: 22,
         paddingLeft: '3%',
@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
         margin: 10,
 
         textAlign: 'Botton',
-        fontFamily: 'Poppins',
         fontWeight: '400',
         paddingLeft: 10,
         fontSize: 24

@@ -56,7 +56,7 @@ const style = StyleSheet.create ({
     },
 
     seleRaca: {
-        padding: '15',
+        padding: 15,
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'nowrap',
@@ -68,8 +68,8 @@ const style = StyleSheet.create ({
     },
 
     botao: {
-        minHeight: 85,
-        minWidth: 85,
+        minHeight: 75,
+        minWidth: 75,
         maxWidth: '33%',
     },
 

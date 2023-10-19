@@ -18,20 +18,26 @@ const Cadastro=  ({ nav }) => {
                 
                 <Text style={IndexStyle.textTopo}>Cadastro</Text>
 
-                <TextFormulario
+                <Formulario
                     espaço={'Nome'}
+                    valor={nome}
+                    onChangeText={(novoNome) => setNome(novoNome)}
                 />
 
-                <TextFormulario
+                <Formulario
                     espaço={'E-mail'}
+                    valor={email}
+                    onChangeText={(novoEmail) => setEmail(novoEmail)}
                 />
 
                 <Formulario
                     espaço={'Senha'}
+                    senha={true}
                 />
 
                 <Formulario
                     espaço={'Repita a sua senha'}
+                    senha={true}
                 />
                 
                 <Pressable style={IndexStyle.button} onPress={ nav }>

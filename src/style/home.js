@@ -5,7 +5,6 @@ const HomeStyle = StyleSheet.create ({
         flex: 1,
         position: 'relative',
         backgroundColor: '#E1FFFF',
-        overflow: 'hidden'
     },
 
     desenho: {
@@ -40,7 +39,7 @@ const HomeStyle = StyleSheet.create ({
         columnGap: 15,
         justifyContent: 'space-around',
         alignSelf: 'center',
-        maxWidth: '90%',
+        maxWidth: '85%',
         margin: 10,
         flex: 1,
     },
@@ -71,9 +70,8 @@ const HomeStyle = StyleSheet.create ({
 
     textPetNovo: {
         textAlign: 'center',
-        fontFamily: 'khula',
         fontWeight: 'bold',
-        fontSize: 22,
+        fontSize: 18,
         padding: 5,
         paddingBottom: 15
     },
@@ -90,9 +88,7 @@ const HomeStyle = StyleSheet.create ({
     },
 
     text: {
-        fontFamily: 'khula',
         fontWeight: 'bold',
-        tex: 'center',
         fontSize: 30,
         paddingTop: 120,
         textAlign: 'center'
@@ -117,8 +113,7 @@ const HomeStyle = StyleSheet.create ({
     },
 
     bottom: {
-        fontFamily: 'Poppins',
-        fontSize: '20px',
+        fontSize: 20,
         color: 'white',
         pointerEvents: 'auto',
         backgroundColor: '#333030',
@@ -127,7 +122,8 @@ const HomeStyle = StyleSheet.create ({
     },
 
     scrollView: {
-        marginBottom: 50
+        marginBottom: 200,
+        overflow: 'visible'
     }
 });
 

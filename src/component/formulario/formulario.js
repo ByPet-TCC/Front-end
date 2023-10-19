@@ -1,14 +1,14 @@
 import React from 'react';
 import {Text, View, Pressable, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
 
-const Formulario = ({ valor, onChangeText, espaço }) => {
+const Formulario = ({ valor, onChangeText, espaço, senha}) => {
     return (
-        <View>
+        <View> 
             <TextInput style={styles.caixaTexto}
                 placeholder={espaço}
                 value={valor}
                 onChangeText={onChangeText}
-                secureTextEntry={true}
+                secureTextEntry={senha}
                 placeholderTextColor= {'#B4B2B2'}
             >
             </TextInput>
@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
         margin: 10,
 
         textAlign: 'Botton',
-        fontFamily: 'Poppins',
-        fontWeight: '400',
         paddingLeft: 10,
         fontSize: 24
     },
