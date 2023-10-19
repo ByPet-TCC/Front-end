@@ -1,60 +1,74 @@
 import React from 'react';
-import { Text, View, Pressable, Image} from 'react-native';
+import { Text, View, Pressable, Image } from 'react-native';
 import { useState } from 'react';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
 import TextFormulario from '../formulario/textform';
 
-const Cadastro=  ({ nav }) => {
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [senha, setSenha] = useState('');
+const Cadastro = ({ nav }) => {
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const [repass, setRepass] = useState("");
 
-    
-        return (
-            <View style={IndexStyle.contentLogin}>
-                <Image source={require('../../../assets/icons/Login/logo.png')} style={IndexStyle.logo}></Image>
-                
-                <Text style={IndexStyle.textTopo}>Cadastro</Text>
+    const auth = getAuth()
+    async function handleCad  (e) {
+        e.preventDefault
+        createUserWithEmailAndPassword(auth, email, senha)
+            .then((user) => {
+                console.log(user);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
 
-                <TextFormulario
-                    espaço={'Nome'}
-                />
+    return (
+        <View style={IndexStyle.contentLogin}>
+            <Image source={require('../../../assets/icons/Login/logo.png')} style={IndexStyle.logo}></Image>
 
-                <TextFormulario
-                    espaço={'E-mail'}
-                />
+            <Text style={IndexStyle.textTopo}>Cadastro</Text>
 
-                <Formulario
-                    espaço={'Senha'}
-                />
+            <TextFormulario
+                espaço='E-mail'
+                onChangeText= {(e) => {setEmail(e.target.value)}} 
+                secureTextEntry={false}
+            />
+            <Formulario
+                espaço ='Senha'
+                onChange={(e) => {setSenha(e.target.value)}}
+                type="text"
+                secureTextEntry={false}
+            />
 
-                <Formulario
-                    espaço={'Repita a sua senha'}
-                />
-                
-                <Pressable style={IndexStyle.button} onPress={ nav }>
-                    <Text style={IndexStyle.textBtn}>Cadastro</Text>
+            <Formulario
+                espaço='Repita a sua senha'
+                onChange={(e) => {setRepass(e.target.value)}}
+                type="text"
+                secureTextEntry={false}
+            />
+
+            <Pressable style={IndexStyle.button} onPress={nav}>
+            <button onclick={()=> {handleCad}} style={IndexStyle.textBtn}>Cadastro</button>
+            </Pressable>
+
+            <Text style={IndexStyle.textIcon}>Se cadastre com</Text>
+
+            <View style={IndexStyle.logos}>
+                <Pressable>
+                    <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} />
                 </Pressable>
 
-                <Text style={IndexStyle.textIcon}>Se cadastre com</Text>
+                <Pressable>
+                    <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx} />
+                </Pressable>
 
-                <View style={IndexStyle.logos}>
-                    <Pressable>
-                        <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx}/>
-                    </Pressable>
-
-                    <Pressable>
-                        <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx}/>
-                    </Pressable>
-
-                    <Pressable>
-                        <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx}/>
-                    </Pressable>
-                </View>
+                <Pressable>
+                    <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx} />
+                </Pressable>
             </View>
-        )
+        </View>
+    )
 };
 
 export default Cadastro;
