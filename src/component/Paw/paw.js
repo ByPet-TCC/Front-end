@@ -2,24 +2,24 @@ import React, { useState } from 'react';
 import {Text, View, Pressable, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
-const Paw = () => {
+const Paw = ({ home, calendar, help, config}) => {
     const [on, setOn] = useState(false);
 
     return(
         <View style={style.paw}>
-                <Pressable style={style.imageHome}>
+                <Pressable style={style.imageHome} onPress={home}>
                     <Image source={require('../../../assets/icons/Paw/home.png')} style={style.image}/>
                 </Pressable>
 
-                <Pressable style={style.imageCalendar}>
+                <Pressable style={style.imageCalendar} onPress={calendar}>
                     <Image source={require('../../../assets/icons/Paw/calendar.png')} style={style.image}/>
                 </Pressable>
 
-                <Pressable style={style.imageHelp}>
+                <Pressable style={style.imageHelp} onPress={help}>
                     <Image source={require('../../../assets/icons/Paw/help.png')} style={style.image}/>
                 </Pressable>
 
-                <Pressable style={style.imageConfig}>
+                <Pressable style={style.imageConfig} onPress={config}>
                     <Image source={require('../../../assets/icons/Paw/config.png')} style={style.image}/>
                 </Pressable>
 
@@ -38,19 +38,19 @@ const style = StyleSheet.create({
         position: 'absolute',
         justifyContent: 'flex-end',
         bottom: 15,
-        right: 15
+        right: 0
     },
     
     image: {
         width: '100%',
         height: '100%',
     },
-
+    
     imagePaw: {
         width: 135,
         height: 135,
     },
-
+    
     imageHome: {
         width: 63.45,
         height: 63.45,

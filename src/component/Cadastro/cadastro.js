@@ -6,7 +6,7 @@ import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
 import TextFormulario from '../formulario/textform';
 
-const Cadastro = ({ nav }) => {
+const Cadastro = ({ nav, fechar }) => {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -35,7 +35,7 @@ const Cadastro = ({ nav }) => {
                 secureTextEntry={false}
             />
 
-            <Pressable style={IndexStyle.button} onPress={nav}>
+            <Pressable style={IndexStyle.button} onPress={nav} onPressOut={fechar}>
                 <Text style={IndexStyle.textBtn}>Cadastro</Text>
             </Pressable>
 

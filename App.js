@@ -6,6 +6,7 @@ import Index from "./src/page/index";
 import Home from './src/page/home/home';
 import CadastroPet from './src/page/cadPet/cadastroPet';
 import Senha from './src/page/senha/senha';
+import Config from './src/page/options/options';
 
 import Test from './src/page/Test/test';
 
@@ -40,7 +41,13 @@ function App() {
         <Stack.Screen 
           name="Senha" 
           component={Senha}
-        />
+          options={{ header: () => null }}
+          />
+
+        <Stack.Screen 
+          name="Configurações" 
+          component={Config}
+          />
 
         <Stack.Screen 
           name="Test" 

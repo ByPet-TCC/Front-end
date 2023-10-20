@@ -41,12 +41,15 @@ const Home = ({navigation}) => {
                             </View>
                         </Pressable>
 
-                        
+                        <NovoPet/>
+                        <NovoPet/>
+                        <NovoPet/>
                     </View>
-
                 </ScrollView>
             </ScrollView>
-            <Paw/>
+            <Paw
+                config={() => navigation.navigate('Configurações')}
+            />
 
         </View>    
         

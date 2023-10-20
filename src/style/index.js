@@ -39,12 +39,11 @@ const IndexStyle =  StyleSheet.create({
 
     button: {
         borderRadius: 5,
-        backgroundColor: '#0FC2BF',
+        backgroundColor: 'rgba(15, 194, 191, 0.75)',
         justifyContent: 'center',
         margin: 10,
         minWidth: 260,
         height: 50,
-
     },
 
     textBtn: {

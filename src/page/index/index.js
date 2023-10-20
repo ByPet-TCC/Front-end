@@ -41,6 +41,7 @@ const Index = ({navigation}) => {
                   setModalLogin(!modalLogin);
                 }}><Text/></Pressable>
                 <Login
+                  fechar={() => setModalLogin(false)}
                   forg={() => navigation.navigate('Senha')}
                   nav={() => navigation.navigate('Home')}
                 />
@@ -57,6 +58,7 @@ const Index = ({navigation}) => {
                   setModalCadastro(!modalCadastro);
                 }}><Text/></Pressable>
                 <Cadastro
+                  fechar={() => setModalCadastro(false)}
                   nav={() => navigation.navigate('Home')}
                 />
               </Modal>

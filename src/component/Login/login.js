@@ -6,7 +6,7 @@ import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
 
 
-const Login = ({ nav, forg}) => {
+const Login = ({ nav, forg, fechar}) => {
   const [email, setEmail] = useState ('');
   const [senha, setSenha] = useState ('');
 
@@ -29,11 +29,11 @@ const Login = ({ nav, forg}) => {
           senha={true}
         />
 
-        <Pressable style={IndexStyle.forget} onPress={forg}>
+        <Pressable style={IndexStyle.forget} onPress={forg} onPressOut={fechar}>
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
         </Pressable>
 
-        <Pressable style={IndexStyle.button} onPress={nav}>
+        <Pressable style={IndexStyle.button} onPress={nav} onPressOut={fechar}>
             <Text style={IndexStyle.textBtn}>Entrar</Text>
         </Pressable>
 
