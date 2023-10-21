@@ -59,7 +59,8 @@ const SenhaStyle =  StyleSheet.create({
     textBack:{
         textAlign: 'center',
         fontSize: 24,
-        color: 'red'
+        color: 'red',
+        fontWeight: 'bold',
     },
 
     bottomEnviar:{
