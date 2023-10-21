@@ -11,8 +11,6 @@ import Config from './src/page/options/options';
 import Test from './src/page/Test/test';
 
 
-
-
 const Stack = createStackNavigator();
 
 function App() {
