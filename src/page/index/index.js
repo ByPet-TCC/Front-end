@@ -41,10 +41,7 @@ const Index = ({navigation}) => {
                   setModalLogin(!modalLogin);
                 }}><Text/></Pressable>
                 <Login
-<<<<<<< HEAD
-=======
                   fechar={() => setModalLogin(false)}
->>>>>>> a79e16f3e4ed69ee12a326e555b21236d535af17
                   forg={() => navigation.navigate('Senha')}
                   nav={() => navigation.navigate('Home')}
                 />
@@ -61,10 +58,7 @@ const Index = ({navigation}) => {
                   setModalCadastro(!modalCadastro);
                 }}><Text/></Pressable>
                 <Cadastro
-<<<<<<< HEAD
-=======
                   fechar={() => setModalCadastro(false)}
->>>>>>> a79e16f3e4ed69ee12a326e555b21236d535af17
                   nav={() => navigation.navigate('Home')}
                 />
               </Modal>
