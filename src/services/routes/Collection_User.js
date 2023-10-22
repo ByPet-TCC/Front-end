@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 
 function Collection() {
+    
   const [newName, setNewName] = useState("");
   const [newEmail, setEmail] = useState(0);
   const [newSenha, setSenha] = useState("");

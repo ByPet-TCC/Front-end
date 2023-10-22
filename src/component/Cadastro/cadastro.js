@@ -6,9 +6,20 @@ import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
 import TextFormulario from '../formulario/textform';
 
+//import Collection from '../../services/routes/Collection';
+import {auth, provider} from "../../services/firebase/firebase";
+import {signInWithPopup} from "firebase/auth";
+import {useNavigate} from "react-router-dom";
+
+
 const Cadastro = ({ nav, fechar }) => {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
+   
+    const loginWithGoogle = async () =>  {
+      await signInWithPopup (auth, provider);
+      navigate("/nav");
+    };
 
     return (
         <View style={IndexStyle.contentLogin}>
@@ -43,11 +54,11 @@ const Cadastro = ({ nav, fechar }) => {
 
             <View style={IndexStyle.logos}>
                 <Pressable>
-                    <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} />
+                    <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} onPress={()=>{loginWithGoogle}}/>
                 </Pressable>
 
                 <Pressable>
-                    <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx} />
+                    <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx} onPress={() => {loginWithGoogle}} />
                 </Pressable>
 
                 <Pressable>
