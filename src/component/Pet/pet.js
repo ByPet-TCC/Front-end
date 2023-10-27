@@ -1,11 +1,52 @@
 import React, { useState } from 'react';
 import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet, modal} from 'react-native';
 
+//import Collection from '../../services/routes/Collection';
+import { auth, provider } from "../../services/firebase/firebase";
+import { signInWithPopup } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+
+import {collection,getDocs,addDoc,updateDoc,deleteDoc,doc,} from "firebase/firestore";
+import { db } from "../../services/firebase/firebase";
 
 const NovoPet = ({ pet }) => {
     const [visivel, setVisivel] = useState(false);
 
     const[nomePet, setNomePet] = useState('');
+
+    const [newEmail, setEmail] = useState("");
+    const [newNome, setNome] = useState("");
+    const [newSenha, setSenha] = useState("");
+    const [newCSenha, setCSenha] = useState("");
+
+
+    const [users, setUsers] = useState([]);
+
+    const usersCollectionRef = collection (db,"users");
+
+  const createUser = async () => {
+    await addDoc(usersCollectionRef, { email: newEmail ,name: newNome, senha: String(newSenha), confirmsenha: String(newCSenha) });
+  };
+
+  const updateUser = async (id, senha) => {
+    const userDoc = doc(db, "users", id);
+    const newFields = { senha: senha==senha};
+    await updateDoc(userDoc, newFields);
+  };
+
+  const deleteUser = async (id) => {
+    const userDoc = doc(db, "users", id);
+    await deleteDoc(userDoc);
+  };
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(usersCollectionRef);
+      setUsers(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getUsers();
+  }, [usersCollectionRef]);
 
         return (
             <View>
