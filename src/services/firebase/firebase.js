@@ -4,12 +4,14 @@ import {getAuth, GoogleAuthProvider} from "firebase/auth";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD2gzgBos19WdkaMgBRPNMr_SytZh_3Ero",
-  authDomain: "by-pet-native.firebaseapp.com",
-  projectId: "by-pet-native",
-  storageBucket: "by-pet-native.appspot.com",
-  messagingSenderId: "766217528639",
-  appId: "1:766217528639:web:1a332ef0ebb91b0369df8a"
+  apiKey: "AIzaSyA4xxkiy-BPxH8PYpNPILKqlcUONegFtqQ",
+  authDomain: "by-pet-api.firebaseapp.com",
+  databaseURL: "https://by-pet-api-default-rtdb.firebaseio.com",
+  projectId: "by-pet-api",
+  storageBucket: "by-pet-api.appspot.com",
+  messagingSenderId: "736920597440",
+  appId: "1:736920597440:web:d1bb6570cb425666304e25",
+  measurementId: "G-021F8Z85E6"
 };
 
 // Initialize Firebase
