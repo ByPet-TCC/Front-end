@@ -2,29 +2,27 @@ import React, { useState } from 'react';
 import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet, modal} from 'react-native';
 
 
-const NovoPet = ({ pet }) => {
+const NovoPet = ({ nomePet, fotoPet, perfil, vacina }) => {
     const [visivel, setVisivel] = useState(false);
 
-    const[nomePet, setNomePet] = useState('');
-
         return (
-            <View>
+            <View style={style.view}>
                 <Pressable onPress={() => setVisivel(!visivel)} activeOpacity={1}>
-                    <View style={[style.pet, style.sombra]}>
-                    
-                    </View>
+                    <ImageBackground style={[style.pet, style.sombra]} source={fotoPet} />
                 </Pressable>
 
                 {visivel && (
                     <View style={style.petOn}>
                         <View style={style.boxBottom}>
-                            <Text style={style.textPet}> {nomePet} </Text>
-                            <Pressable style={style.bottom}>
+                            <Text style={style.textPet}> 
+                                {nomePet} 
+                            </Text>
+                            <Pressable style={style.bottom} onPress={perfil}>
                                 <Text style={style.textbottom}>
                                     Perfil
                                 </Text>
                             </Pressable>
-                             <Pressable style={style.bottom}>
+                             <Pressable style={style.bottom} onPress={vacina}>
                                 <Text style={style.textbottom}>
                                     Vacinas
                                 </Text>

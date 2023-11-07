@@ -7,7 +7,11 @@ import HomeStyle from '../../style/home'
 
 const Home = ({navigation}) => {
     const [usuario, setUsuario] = useState('');
-    const [pet, setPet] = useState([]);
+    const [data, setData] = useState([
+        {key: 1, pet: 'Craudio' },
+        {key: 2, pet: 'Arrombado'},
+        {key: 3, pet: 'jorge'}
+    ]);
 
     useEffect(() => {
         fetch('')
@@ -41,9 +45,25 @@ const Home = ({navigation}) => {
                             </View>
                         </Pressable>
 
-                        <NovoPet/>
-                        <NovoPet/>
-                        <NovoPet/>
+                        <FlatList
+                            data={data}
+                            renderItem={({ item }) => (
+                                <NovoPet nomePet={item.pet} fotoPet={item.fotoPet}/> 
+                            )}
+                        />
+
+                        
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+                        <NovoPet></NovoPet>
+
                     </View>
                 </ScrollView>
             </ScrollView>

@@ -47,7 +47,7 @@ const CadastroStyle = StyleSheet.create ({
         textAlignVertical: 'top',
         justifyContent: 'flex-start',
         padding: 10,
-        fontSize: 11,
+        fontSize: 16,
     },
 
     Salvar:{
