@@ -14,8 +14,6 @@ import Test from './src/page/Test/test';
 import { StatusBar } from 'expo-status-bar';
 
 
-
-
 const Stack = createStackNavigator();
 
 function App() {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Text, View, Image, ImageBackground, StyleSheet, Pressable, TouchableHighlight, Modal} from 'react-native';
 import IndexStyle from '../../style';
+
 import TextFormulario from '../../component/formulario/textform';
 import SenhaStyle from '../../style/senha';
 
