@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Pressable, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { useState } from 'react';
 
 import IndexStyle from '../../style';
@@ -35,24 +35,24 @@ const Cadastro = ({ nav, fechar }) => {
                 secureTextEntry={false}
             />
 
-            <Pressable style={IndexStyle.button} onPress={nav} onPressOut={fechar}>
+            <TouchableOpacity style={IndexStyle.button} onPressIn={nav} onPressOut={fechar}>
                 <Text style={IndexStyle.textBtn}>Cadastro</Text>
-            </Pressable>
+            </TouchableOpacity>
 
             <Text style={IndexStyle.textIcon}>Se cadastre com</Text>
 
             <View style={IndexStyle.logos}>
-                <Pressable>
+                <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} />
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable>
+                <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx} />
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable>
+                <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx} />
-                </Pressable>
+                </TouchableOpacity>
             </View>
         </View>
     )

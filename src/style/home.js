@@ -39,6 +39,7 @@ const HomeStyle = StyleSheet.create ({
         columnGap: 15,
         justifyContent: 'space-around',
         alignSelf: 'center',
+        alignItems: 'center',
         maxWidth: '85%',
         margin: 10,
         flex: 1,

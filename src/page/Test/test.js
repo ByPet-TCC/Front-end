@@ -1,87 +1,40 @@
-import React, { useState } from 'react';
-import {Text, View, Image, ImageBackground, StyleSheet, Pressable, TouchableHighlight, Modal} from 'react-native';
-import IndexStyle from '../../style';
+import React from 'react';
+import { View, FlatList, Dimensions, Animated } from 'react-native';
 
-const Test = ({navigation}) => {
+const { width } = Dimensions.get('window');
+
+const Test = ({ data }) => {
+  const scrollX = new Animated.Value(0);
+  let position = Animated.divide(scrollX, width);
+
+  if (data && data.length) {
     return (
-        <View style={{height: '100%', width: '100%'}}>
-            <View style={style.paw}>
-                <Pressable style={style.imageHome}>
-                    <Image source={require('../../../assets/icons/Paw/home.png')} style={style.image}/>
-                </Pressable>
-
-                <Pressable style={style.imageCalendar}>
-                    <Image source={require('../../../assets/icons/Paw/calendar.png')} style={style.image}/>
-                </Pressable>
-
-                <Pressable style={style.imageHelp}>
-                    <Image source={require('../../../assets/icons/Paw/help.png')} style={style.image}/>
-                </Pressable>
-
-                <Pressable style={style.imageConfig}>
-                    <Image source={require('../../../assets/icons/Paw/config.png')} style={style.image}/>
-                </Pressable>
-
-                <Pressable style={style.imagePaw}>
-                        <Image source={require('../../../assets/icons/Paw/paw.png')} style={style.image}/>
-                </Pressable>
-            </View>
-        </View>
+      <View>
+        <FlatList data={data}
+          keyExtractor={(item, index) => 'key' + index}
+          horizontal
+          pagingEnabled
+          scrollEnabled
+          snapToAlignment="center"
+          scrollEventThrottle={16}
+          decelerationRate={"fast"}
+          showsHorizontalScrollIndicator={false}
+          renderItem={({ item }) => {
+            return (
+              <View style={{ width: width }}>
+                <Image source={require('../Test/imagem.png')} style={{width: 1000}}/><Image source={require('../Test/imagem1.png')}/><Image source={require('../Test/imagem2.png')}/>
+              </View>
+            );
+          }}
+          onScroll={Animated.event([
+            { nativeEvent: { contentOffset: { x: scrollX } } }
+          ])}
+        />
+      </View>
     );
-};
+  }
 
-const style = StyleSheet.create({
-    paw: {
-        width: 150,
-        height: 150,
-        alignSelf: 'center',
-        position: 'absolute',
-        justifyContent: 'flex-end',
-        bottom: 15,
-        right: 15
-    },
-    
-    image: {
-        width: '100%',
-        height: '100%',
-    },
-
-    imagePaw: {
-        width: 135,
-        height: 135,
-    },
-
-    imageConfig: {
-        width: 63.45,
-        height: 63.45,
-        position: 'absolute',
-        bottom: 5,
-        right: 150
-    },
-
-    imageHelp: {
-        width: 63.45,
-        height: 63.45,
-        position: 'absolute',
-        bottom: 70,
-        right: 140
-    },
-
-    imageCalendar: {
-        width: 63.45,
-        height: 63.45,
-        position: 'absolute',
-        bottom: 123,
-        right: 100
-    },
-
-    imageHome: {
-        width: 63.45,
-        height: 63.45,
-        position: 'absolute',
-        bottom: 135,
-        right: 33
-    },
-})
+  return null;
+}
 
 export default Test;

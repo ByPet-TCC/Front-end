@@ -14,10 +14,13 @@ const IndexStyle =  StyleSheet.create({
     },
 
     logo: {
+        position: 'absolute',
+        top: -53,
+
         maxHeight: '100%',
-        height: 85,
+        height: 105,
         maxWidth: '100%',
-        width: 85,
+        width: 105,
         alignSelf: 'center'
     },
 
@@ -26,7 +29,7 @@ const IndexStyle =  StyleSheet.create({
         fontSize: 45,
         fontWeight: 'bold',
         alignSelf: "center",
-        marginVertical: 5,
+        marginVertical: 10,
     },
 
     textDesc: {
@@ -120,6 +123,7 @@ const IndexStyle =  StyleSheet.create({
     },
     
     modal: {
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         width: '100%',
         height: '80%'
     }

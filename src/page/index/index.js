@@ -8,7 +8,7 @@ import Cadastro from '../../component/Cadastro/cadastro';
 
 // Inicialização da tela de Login/Cadastro
 const Index = ({navigation}) => {
-  const [modalLogin, setModalLogin] = React.useState(false);
+  const [modalLogin, setModalLogin] = useState(false);
   const [modalCadastro, setModalCadastro] = useState(false);
 
   return (
@@ -41,9 +41,9 @@ const Index = ({navigation}) => {
                   setModalLogin(!modalLogin);
                 }}><Text/></Pressable>
                 <Login
-                  fechar={() => setModalLogin(false)}
                   forg={() => navigation.navigate('Senha')}
                   nav={() => navigation.navigate('Home')}
+                  fechar={() => setModalLogin(false)}
                 />
 
               </Modal>
