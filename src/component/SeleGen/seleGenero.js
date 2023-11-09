@@ -4,6 +4,9 @@ import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextIn
 const SeleGen = ({}) => {
     const [genero, setGen] = useState (null);
 
+    const [select_male, setMale] = useState("");
+    const [select_female, setFem] = useState("");
+
     const icons = {
         male: require('../../../assets/icons/genero/male.png'),
         male_selecionada: require('../../../assets/icons/genero/male_selecionada.png'),

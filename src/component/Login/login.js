@@ -6,9 +6,13 @@ import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
 
 import {auth, provider} from "../../services/firebase/firebase";
-import {signInWithPopup} from "firebase/auth";
 import {useNavigate} from "react-router-dom";
 
+//import Collection from '../../services/routes/Collection';
+import { createUserWithEmailAndPassword,signInWithEmailAndPassword,onAuthStateChanged,signOut } from "firebase/auth";
+
+import {collection,getDocs,addDoc,updateDoc,deleteDoc,doc,} from "firebase/firestore";
+import { db } from "../../services/firebase/firebase";
 
 const Login = ({ nav, forg, fechar}) => {
   const [email, setEmail] = useState ('');
@@ -47,7 +51,7 @@ const Login = ({ nav, forg, fechar}) => {
             <Text style={IndexStyle.textBtn}>Entrar</Text>
         </Pressable>
 
-        <Text style={IndexStyle.textIcon}>Ou faça login com:</Text>
+        <Text style={IndexStyle.textIcon}>Ou faça login com:</Text> 
 
         <View style={IndexStyle.logos}>
                 

@@ -111,3 +111,4 @@ const Cadastro = ({ nav, fechar }) => {
 };
 
 export default Cadastro;
+

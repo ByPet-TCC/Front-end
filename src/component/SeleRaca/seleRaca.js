@@ -3,6 +3,11 @@ import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextIn
 
 const SeleRaca = ({}) => {
     const [raca, setRaca] = useState (null);
+    
+    const [select_dog, setDog] = useState("");
+    const [select_cat, setCat] = useState("");
+    const [select_hamster, setHamster] = useState("");
+    const [select_rabit, setRabit] = useState("");
 
     const icons = {
         dog: require('../../../assets/icons/dog/dog.png'),
@@ -80,3 +85,4 @@ const style = StyleSheet.create ({
 })
 
 export default SeleRaca;
+
