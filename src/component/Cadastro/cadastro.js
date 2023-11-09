@@ -88,7 +88,7 @@ const Cadastro = ({ nav, fechar }) => {
             />
 
             <Pressable style={IndexStyle.button} >
-            <button onClick={createUser}> Criar Usuario</button>
+            <Text onClick={createUser}> Criar Usuario </Text>
             </Pressable>
 
             <Text style={IndexStyle.textIcon}>Se cadastre com</Text>

@@ -111,8 +111,8 @@ const Cadastro = ({navigation}) => {
           </View>
 
           <View style={CadastroStyle.CaixaBranca}>
-            <Pressable style={CadastroStyle.Salvar}>
-              <button  onClick={createPet}> Salvar </button>
+            <Pressable style={CadastroStyle.Salvar} onClick={createPet}>
+              <Text style={CadastroStyle.TextoPerg} > Salvar </Text>
             </Pressable>
             <Text style={CadastroStyle.Texto}>
             *Sabia que o focinho do seu pet tem uma digital e ela é unica assim como a sua?
