@@ -22,7 +22,7 @@ function App() {
   return (
     <NavigationContainer >
       <Stack.Navigator // Declação das paginas que poderão ser navegadas
-        initialRouteName="Perfil Pet" /* Definindo que o Index.js é a primeira tela */
+        initialRouteName="Index" /* Definindo que o Index.js é a primeira tela */
         options={{ header: () => <StatusBar backgroundColor='black' />}}
         >
 

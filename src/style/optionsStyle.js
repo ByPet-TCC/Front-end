@@ -88,7 +88,6 @@ const OptionsStyle =  StyleSheet.create({
         },
 
         cancelarPopup: {
-            backgroundColor: 'red',
             paddingVertical: 10,
             paddingHorizontal: 65
         },
@@ -98,7 +97,6 @@ const OptionsStyle =  StyleSheet.create({
         },
 
         sairPopup: {
-            backgroundColor: 'blue',
             paddingVertical: 10,
             paddingHorizontal: 65
         },

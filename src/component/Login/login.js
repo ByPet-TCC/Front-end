@@ -7,8 +7,10 @@ import Formulario from '../formulario/formulario';
 
 
 const Login = ({ nav, forg, fechar}) => {
+
   const [email, setEmail] = useState ('');
   const [senha, setSenha] = useState ('');
+  const [visivel, setVisivel] = useState(true)
 
     return (
       <View style={IndexStyle.contentLogin}>
@@ -26,7 +28,7 @@ const Login = ({ nav, forg, fechar}) => {
           espaço='Senha'
           valor={senha}
           onChangeText={(novaSenha) => setSenha(novaSenha)}
-          senha={true}
+          senha={visivel}
         />
 
         <TouchableOpacity style={IndexStyle.forget} onPressIn={forg} onPressOut={fechar}>

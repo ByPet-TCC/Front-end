@@ -6,10 +6,10 @@ import Paw from '../../component/Paw/paw';
 import Post from '../../component/perfil/post';
 
 const Perfil = ({navigation}) => {
-    const [nomePet, setNomePet] = useState ('Arrombadinho');
-    const [idade, setIdade] = useState ('5');
-    const [descr, setDescr] = useState('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-    const [altDescr, setAltDescr] = useState ('');
+    const [nomePet, setNomePet] = useState ('Anderson');
+    const [idade, setIdade] = useState ('23');
+    const [descr, setDescr] = useState('Test');
+    const [altDescr, setAltDescr] = useState (descr);
     const [modalDescr, setModalDescr] = useState(false);
 
     const [data, setData] = useState([
@@ -36,12 +36,12 @@ const Perfil = ({navigation}) => {
                                 value = {altDescr}
                             />
                             <View style={PerfilStyle.botoes}>
-                                <TouchableOpacity>
-                                    <Text>Cancelar</Text>
+                                <TouchableOpacity style={PerfilStyle.cancelar} onPress={() => setModalDescr(false)}>
+                                    <Text style={PerfilStyle.text}>Cancelar</Text>
                                 </TouchableOpacity>
 
-                                <TouchableOpacity onPress={() => setDescr(altDescr)}>
-                                    <Text>Salvar</Text>
+                                <TouchableOpacity style={PerfilStyle.salvar} onPress={() => setDescr(altDescr)} onPressOut={() => setModalDescr(false)}>
+                                    <Text style={PerfilStyle.text}>Salvar</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>

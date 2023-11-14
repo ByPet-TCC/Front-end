@@ -45,6 +45,14 @@ const HomeStyle = StyleSheet.create ({
         flex: 1,
     },
 
+    flatlist: {
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        rowGap: 15,
+        columnGap: 15
+    },
+
     novoPet: {
         width: 140,
         height: 172,

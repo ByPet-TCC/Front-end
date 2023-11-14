@@ -24,7 +24,7 @@ const PerfilStyle = StyleSheet.create ({
         alignSelf: 'center',
         width: '80%',
         height: '80%',
-        backgroundColor: '#D9D9D9CC',
+        backgroundColor: 'white',
         borderWidth: 1.5,
         borderColor: '#514F50',
 
@@ -33,6 +33,7 @@ const PerfilStyle = StyleSheet.create ({
         justifyContent: 'flex-start',
         padding: 10,
         fontSize: 16,
+        marginTop: 15
     },
 
     botoes: {
@@ -40,6 +41,18 @@ const PerfilStyle = StyleSheet.create ({
         justifyContent: 'space-around',
         margin: 15
     },
+
+    cancelar: {
+        
+    },
+
+    salvar: {
+
+    },
+
+    text: {
+        fontSize: 20,
+    }
 })
 
 export default PerfilStyle;

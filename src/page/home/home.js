@@ -2,28 +2,16 @@ import React, { useEffect, useState } from 'react';
 import {Text, View, ScrollView, Pressable, Image, ImageBackground, StyleSheet, FlatList } from 'react-native';
 import NovoPet from '../../component/Pet/pet';
 import Paw from '../../component/Paw/paw';
+import Cadastro from '../cadPet/cadastroPet';
 
 import HomeStyle from '../../style/home'
 
 const Home = ({navigation}) => {
     const [usuario, setUsuario] = useState('');
     const [data, setData] = useState([
-        {key: 1, pet: 'Craudio' },
-        {key: 2, pet: 'Arrombado'},
-        {key: 3, pet: 'jorge'}
+        {key: 1, pet: 'Rex' },
+        {key: 2, pet: 'Rose'},
     ]);
-
-    useEffect(() => {
-        fetch('')
-            .then(response => response.json())
-            .then(data => setUsuario(data));
-    },'');
-
-    useEffect(() => {
-        fetch('')
-            .then(response => response.json())
-            .then(data => setPet(data));
-    },[]);
 
     return(
         <View style={HomeStyle.container}>
@@ -44,25 +32,9 @@ const Home = ({navigation}) => {
                                 <Text style={HomeStyle.textPetNovo}>Adicione um novo familiar</Text>
                             </View>
                         </Pressable>
-
-                        <FlatList
-                            data={data}
-                            renderItem={({ item }) => (
-                                <NovoPet nomePet={item.pet} fotoPet={item.fotoPet}/> 
-                            )}
-                        />
-
-                        
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
-                        <NovoPet></NovoPet>
+                        {data.map((item) => (
+                            <NovoPet nomePet={item.pet} fotoPet={item.fotoPet} perfil={() => navigation.navigate('Perfil Pet')} vacina={() => navigation.navigate('Carteira de vacina')}/> 
+                    ))}
 
                     </View>
                 </ScrollView>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet} from 'react-native';
 import CadastroStyle from '../../style/cadastroPet';
 
@@ -77,7 +77,7 @@ const Cadastro = ({navigation}) => {
           </View>
 
           <View style={CadastroStyle.CaixaBranca}>
-            <Pressable style={CadastroStyle.Salvar}>
+            <Pressable style={CadastroStyle.Salvar} onPress={() => navigation.navigate('Home')}>
               <Text style={CadastroStyle.TextSalvar}>Salvar</Text>
             </Pressable>
             <Text style={CadastroStyle.Texto}>

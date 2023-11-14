@@ -35,6 +35,10 @@ const NovoPet = ({ nomePet, fotoPet, perfil, vacina }) => {
 };
 
 const style = StyleSheet.create ({
+    view: {
+        
+    },
+
     pet: {
         width: 140,
         height: 172,
