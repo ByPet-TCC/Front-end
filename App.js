@@ -17,6 +17,7 @@ import { StatusBar } from 'expo-status-bar';
 const Stack = createStackNavigator();
 
 function App() {
+
   return (
     <NavigationContainer >
       <Stack.Navigator // Declação das paginas que poderão ser navegadas

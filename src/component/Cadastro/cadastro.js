@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image, } from 'react-native';
 import { useState } from 'react';
-import firebase from '@react-native-firebase/app';
+import auth from '@react-native-firebase/auth';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
@@ -22,12 +22,11 @@ const Cadastro = ({ nav, fechar }) => {
             alert ("As senhas não são iguais.")
             return;
         } else {
-            firebase.auth().createUserWithEmailAndPassword(novoNome, email, senha)
+            auth()
+                .createUserWithEmailAndPassword(novoNome, email, senha)
                 .then ((userCredencial) => {
-                    const users = userCredencial.users;
+                    const user = userCredencial.user;
                     alert ('O Usuario foi criado com sucesso');
-                    fechar
-                    nav
                 })
                 .cath((error) => {
                     const errorMessage = error.message;
@@ -51,6 +50,7 @@ const Cadastro = ({ nav, fechar }) => {
                
             <Formulario
                 espaço='E-mail'
+                tipo= 'email-address'
                 secureTextEntry={false}
                 onChangeText={(email) => setEmail(email)}
                 valor={email}
@@ -76,17 +76,17 @@ const Cadastro = ({ nav, fechar }) => {
             <Text style={IndexStyle.textIcon}>Se cadastre com</Text>
 
             <View style={IndexStyle.logos}>
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
                 <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx} />
                 </TouchableOpacity>
 
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx} />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </View>
         </View>
     )

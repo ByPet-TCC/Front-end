@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {Text, View, Image, ImageBackground, StyleSheet, Pressable, TouchableHighlight, Modal} from 'react-native';
 import IndexStyle from '../../style';
+import firebase from '@firebase/app'
 
 import Login from '../../component/Login/login';
 import Cadastro from '../../component/Cadastro/cadastro';
