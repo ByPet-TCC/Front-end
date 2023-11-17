@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image, } from 'react-native';
 import { useState } from 'react';
-import auth from '@react-native-firebase/auth';
+import { auth } from '../../services/firebase/firebaseConfig';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
@@ -11,29 +12,26 @@ const Cadastro = ({ nav, fechar }) => {
     const [novoNome, setNovoNome] = useState ("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const [senha1, setSenha1] = useState("");
+    const [senha1, setSenha1] = useState(""); 
+    const [usuario, setUsuario] = useState([])
 
-    const novoUsuario = () => {
+    async function cadastrar() {
         if(novoNome === '' || email === '' || senha === '' || senha1 === '') {
-            alert ('Algum campo esta vazio')
+            alert ('É preciso preencher todos os campos!')
             return;
         }
         if (senha !== senha1) {
             alert ("As senhas não são iguais.")
             return;
         } else {
-            auth()
-                .createUserWithEmailAndPassword(novoNome, email, senha)
-                .then ((userCredencial) => {
-                    const user = userCredencial.user;
-                    alert ('O Usuario foi criado com sucesso');
-                })
-                .cath((error) => {
-                    const errorMessage = error.message;
-                    alert(errorMessage)
-                })
+                const resultado = await createUserWithEmailAndPassword( auth, email, senha )
+
+                setUsuario(resultado)
         }
+        console.log(usuario)
     }
+
+    
 
     return (
         <View style={IndexStyle.contentLogin}>
@@ -69,7 +67,7 @@ const Cadastro = ({ nav, fechar }) => {
                 valor={senha1}
             />
 
-            <TouchableOpacity style={IndexStyle.button} onPress={novoUsuario}>
+            <TouchableOpacity style={IndexStyle.button} onPress={() => {cadastrar()}}>
                 <Text style={IndexStyle.textBtn}>Cadastro</Text>
             </TouchableOpacity>
 

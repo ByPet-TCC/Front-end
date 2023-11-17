@@ -4,13 +4,27 @@ import { useState } from 'react';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../services/firebase/firebaseConfig';
 
 
-const Login = ({ nav, forg, fechar}) => {
-
+const Login = ({ nav, forg, fechar }) => {
+  const [usuario, setUsuario] = useState('')
   const [email, setEmail] = useState ('');
   const [senha, setSenha] = useState ('');
   const [visivel, setVisivel] = useState(true)
+
+  async function logar() {
+    if (email === '' || senha === '') {
+      alert ('Algum campo esta vazio')
+      return;
+    } else {
+      const resultado = await signInWithEmailAndPassword(auth, email, senha)
+
+      setUsuario(resultado)  
+    }
+    console.log(usuario)
+  }
 
     return (
       <View style={IndexStyle.contentLogin}>
@@ -22,6 +36,7 @@ const Login = ({ nav, forg, fechar}) => {
           espaço='E-mail'
           valor={email}
           onChangeText={(novoEmail) => setEmail(novoEmail)}
+          tipo= 'email-address'
         />
 
         <Formulario
@@ -35,24 +50,24 @@ const Login = ({ nav, forg, fechar}) => {
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={IndexStyle.button} onPressIn={nav} onPressOut={fechar}>
+        <TouchableOpacity style={IndexStyle.button} onPress={logar}>
             <Text style={IndexStyle.textBtn}>Entrar</Text>
         </TouchableOpacity>
 
         <Text style={IndexStyle.textIcon}>Ou faça login com:</Text>
 
         <View style={IndexStyle.logos}>
-                  <TouchableOpacity>
+                  {/* <TouchableOpacity>
                       <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} />
-                   </TouchableOpacity>
+                   </TouchableOpacity> */}
 
                   <TouchableOpacity>
                       <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx}/>
                   </TouchableOpacity>
 
-                  <TouchableOpacity>
+                  {/* <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx}/>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
               </View>
       </View>
     );
