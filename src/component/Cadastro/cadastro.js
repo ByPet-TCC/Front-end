@@ -1,19 +1,21 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image, } from 'react-native';
 import { useState } from 'react';
-import { auth } from '../../services/firebase/firebaseConfig';
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from '../../services/firebase/firebaseConfig';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile} from "firebase/auth";
+import { collection, getDocs, addDoc, doc, userCredential, firestore} from 'firebase/firestore/lite';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
+import { firebase } from '@react-native-firebase/auth';
 
 const Cadastro = ({ nav, fechar }) => {
+    const user = auth.currentUser
 
     const [novoNome, setNovoNome] = useState ("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [senha1, setSenha1] = useState(""); 
-    const [usuario, setUsuario] = useState([])
 
     async function cadastrar() {
         if(novoNome === '' || email === '' || senha === '' || senha1 === '') {
@@ -23,10 +25,21 @@ const Cadastro = ({ nav, fechar }) => {
         if (senha !== senha1) {
             alert ("As senhas não são iguais.")
             return;
-        } else {
-                const resultado = await createUserWithEmailAndPassword( auth, email, senha )
-
-                setUsuario(resultado)
+        } else {                
+            const resultado = await createUserWithEmailAndPassword( auth, email, senha )
+            try {
+                const auth = getAuth();
+                onAuthStateChanged(auth, (user) =>{
+                    if (user) {
+                        updateProfile(user, {
+                          displayName: novoNome
+                        })
+                    }
+                })
+            } catch (e) { 
+                console.error(e)
+            }
+            setUsuario(resultado)
         }
         console.log(usuario)
     }
