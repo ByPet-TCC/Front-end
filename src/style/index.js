@@ -95,7 +95,6 @@ const IndexStyle =  StyleSheet.create({
         color: '#3C3A3A',
         fontSize: 40,
         alignSelf: 'center',
-        reight: 'bold'
     },
 
     textIcon:{

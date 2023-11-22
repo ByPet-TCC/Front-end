@@ -2,8 +2,25 @@ import React, { useState } from 'react';
 import {Text, View, Image, Modal, TouchableOpacity, ScrollView} from 'react-native';
 import OptionsStyle from '../../style/optionsStyle';
 import MenuOpcoes from '../../component/opcoes/opcoes';
+import { useNavigation } from '@react-navigation/native';
 
-const Config = ({navigation}) => {
+import { getAuth, signOut } from 'firebase/auth';
+
+const Config = ({ }) => {
+    const navigation = useNavigation();
+    const auth = getAuth();
+    const user = auth.currentUser
+
+    async function Logout () {
+        try {
+            await signOut(auth);
+            console.log('Usuário deslogado com sucesso!');
+            navigation.navigate('Index')
+          } catch (error) {
+            console.error(error);
+          }
+    }
+
     const [modal, setModal] = useState(false);
 
     return(
@@ -11,8 +28,8 @@ const Config = ({navigation}) => {
             <View style={OptionsStyle.header}>
                 <Image style={OptionsStyle.perfil}/>
                 <View style={OptionsStyle.cabecalho}>
-                    <Text style={OptionsStyle.nome}>Nome Usuario</Text>
-                    <Text style={OptionsStyle.email}>Email Usuario</Text>
+                    <Text style={OptionsStyle.nome}>{user.displayName}</Text>
+                    <Text style={OptionsStyle.email}>{user.email}</Text>
                 </View>
             </View>
             <ScrollView style={OptionsStyle.content}>
@@ -55,7 +72,7 @@ const Config = ({navigation}) => {
                                 Não
                             </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={OptionsStyle.sairPopup} onPress={() => navigation.navigate('Index')} onPressOut={() => setModal(false)}>
+                        <TouchableOpacity style={OptionsStyle.sairPopup} onPress={Logout} onPressOut={() => setModal(false)}>
                             <Text style={OptionsStyle.sairTexto}>
                                 Sim
                             </Text>

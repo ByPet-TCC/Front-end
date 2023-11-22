@@ -4,14 +4,48 @@ import CadastroStyle from '../../style/cadastroPet';
 
 import TextFormulario from '../../component/formulario/textform';
 import SeleGen from '../../component/SeleGen/seleGenero';
-import SeleRaca from '../../component/SeleRaca/seleRaca';
+import SeleEspecie from '../../component/SeleRaca/seleEspecie';
+import SeletorPerfil from '../../component/inputFoto/inputFoto';
+import { getAuth } from 'firebase/auth';
+import { db, storage } from '../../services/firebase/firebaseConfig';
+import { addDoc, collection } from 'firebase/firestore/lite';
+import { firebase } from '@react-native-firebase/auth';
 
-const Cadastro = ({navigation}) => {
+const CadastroPet = ({navigation}) => {
+  function aleta () {
+    alert(`${especie}, ${genero}, ${imagem} `)  
+  }
+  
+  const auth = getAuth();
+  const user = auth.currentUser
+  const uid = firebase.auth().currentUser.uid;
+
   const [nomePet, setNomePet] = useState('');
+  const [especie, setEspecie] = useState('');
   const [raca, setRaca] = useState('');
+  const [genero, setGen] = useState('');
   const [rga, setRga] = useState ('');
   const [idade, setIdade] = useState ('');
   const [descr, setDescr] = useState ('');
+  const [imagem, setImagem] = useState(null);
+
+  async function Salvar () {
+    try {
+        const docRef = await addDoc(uid) (collection(db, 'pet'), {
+          Pet: nomePet,
+          especie: especie,
+          raca: raca,
+          genero: genero,
+          rga: rga,
+          idade: idade,
+          descricao: descr,
+          imagem: imagem,
+        })
+        console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+    }
 
     return(
         <ScrollView style={CadastroStyle.content}>
@@ -23,7 +57,7 @@ const Cadastro = ({navigation}) => {
               valor={nomePet}
             />
 
-            <SeleRaca />
+            <SeleEspecie seleEspecie={setEspecie}/>
 
             <TextFormulario 
               texto = 'Escolha a raça'
@@ -32,7 +66,7 @@ const Cadastro = ({navigation}) => {
               valor = {raca}
             />
             
-            <SeleGen />
+            <SeleGen seleGen={setGen}/>
 
             <TextFormulario 
               texto = 'RGA (Registro Geral Animal)'
@@ -77,7 +111,12 @@ const Cadastro = ({navigation}) => {
           </View>
 
           <View style={CadastroStyle.CaixaBranca}>
-            <Pressable style={CadastroStyle.Salvar} onPress={() => navigation.navigate('Home')}>
+
+            <View>
+              <SeletorPerfil setUriImagem={setImagem}/>
+            </View>
+
+            <Pressable style={CadastroStyle.Salvar} onPress={Salvar}>
               <Text style={CadastroStyle.TextSalvar}>Salvar</Text>
             </Pressable>
             <Text style={CadastroStyle.Texto}>
@@ -89,4 +128,4 @@ const Cadastro = ({navigation}) => {
     )
 }
 
-export default Cadastro;
+export default CadastroPet;

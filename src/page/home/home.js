@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import {Text, View, ScrollView, Pressable, Image, ImageBackground, StyleSheet, FlatList } from 'react-native';
+import {Text, View, ScrollView, Pressable, Image,} from 'react-native';
 import NovoPet from '../../component/Pet/pet';
 import Paw from '../../component/Paw/paw';
-import Cadastro from '../cadPet/cadastroPet';
 
 import HomeStyle from '../../style/home'
+import { getAuth } from 'firebase/auth';
+import { firebase } from '@react-native-firebase/auth';
 
-const Home = ({navigation}) => {
-    const [usuario, setUsuario] = useState('');
+function Home ({navigation}) {
+    const auth = getAuth();
+    const user = auth.currentUser
+    const uid = firebase.auth().currentUser.uid;
+
     const [data, setData] = useState([
-        {key: 1, pet: 'Rex' },
-        {key: 2, pet: 'Rose'},
     ]);
 
     return(
@@ -22,7 +24,7 @@ const Home = ({navigation}) => {
                     </View>
 
                     <Text style={HomeStyle.text}>
-                        Pet's {usuario}
+                        Pet's {user.displayName}
                     </Text>
 
                     <View style={HomeStyle.content}>    

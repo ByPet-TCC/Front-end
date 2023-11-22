@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image} from 'react-native';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
@@ -8,22 +9,24 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../services/firebase/firebaseConfig';
 
 
-const Login = ({ nav, forg, fechar }) => {
-  const [usuario, setUsuario] = useState('')
+function Login ({ forg, fechar }) {
+  const navigation = useNavigation()
+
   const [email, setEmail] = useState ('');
   const [senha, setSenha] = useState ('');
-  const [visivel, setVisivel] = useState(true)
+  const [visivel, setVisivel] = useState(true);
+
 
   async function logar() {
     if (email === '' || senha === '') {
       alert ('Algum campo esta vazio')
       return;
     } else {
-      const resultado = await signInWithEmailAndPassword(auth, email, senha)
+        const resultado = await signInWithEmailAndPassword(auth, email, senha)
 
-      setUsuario(resultado)  
+         navigation.navigate('Home')
+        // console.log(resultado)
     }
-    console.log(usuario)
   }
 
     return (
@@ -50,7 +53,7 @@ const Login = ({ nav, forg, fechar }) => {
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={IndexStyle.button} onPress={logar}>
+        <TouchableOpacity style={IndexStyle.button} onPress={logar} onPressOut={fechar}>
             <Text style={IndexStyle.textBtn}>Entrar</Text>
         </TouchableOpacity>
 

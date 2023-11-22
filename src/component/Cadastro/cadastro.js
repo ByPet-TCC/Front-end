@@ -1,21 +1,20 @@
 import React from 'react';
 import { Text, View, TouchableOpacity, Image, } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { auth, db } from '../../services/firebase/firebaseConfig';
+import { auth } from '../../services/firebase/firebaseConfig';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile} from "firebase/auth";
-import { collection, getDocs, addDoc, doc, userCredential, firestore} from 'firebase/firestore/lite';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
-import { firebase } from '@react-native-firebase/auth';
 
-const Cadastro = ({ nav, fechar }) => {
-    const user = auth.currentUser
+function Cadastro ({ fechar }) {
+    const navigation = useNavigation('');
 
     const [novoNome, setNovoNome] = useState ("");
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
-    const [senha1, setSenha1] = useState(""); 
+    const [senha1, setSenha1] = useState("");
 
     async function cadastrar() {
         if(novoNome === '' || email === '' || senha === '' || senha1 === '') {
@@ -32,16 +31,15 @@ const Cadastro = ({ nav, fechar }) => {
                 onAuthStateChanged(auth, (user) =>{
                     if (user) {
                         updateProfile(user, {
-                          displayName: novoNome
+                          displayName: novoNome,
                         })
                     }
                 })
+                navigation.navigate('Home')
             } catch (e) { 
                 console.error(e)
             }
-            setUsuario(resultado)
         }
-        console.log(usuario)
     }
 
     
@@ -80,7 +78,7 @@ const Cadastro = ({ nav, fechar }) => {
                 valor={senha1}
             />
 
-            <TouchableOpacity style={IndexStyle.button} onPress={() => {cadastrar()}}>
+            <TouchableOpacity style={IndexStyle.button} onPress={() => {cadastrar()}} onPressOut={fechar}>
                 <Text style={IndexStyle.textBtn}>Cadastro</Text>
             </TouchableOpacity>
 

@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput, Pressable} from 'react-native';
 
-const SeleGen = ({}) => {
+const SeleGen = ({ seleGen }) => {
     const [genero, setGen] = useState (null);
+
+    const handlePress = (genero) => {
+        setGen(genero);
+        seleGen(genero);
+    }
 
     const icons = {
         male: require('../../../assets/icons/genero/male.png'),
@@ -11,8 +16,8 @@ const SeleGen = ({}) => {
         female_selecionada: require('../../../assets/icons/genero/female_selecionada.png'),
       };
 
-    const male = genero === 'male' ? 'male_selecionada' : 'male';
-    const female = genero === 'female' ? 'female_selecionada' : 'female';
+    const male = genero === 'Macho' ? 'male_selecionada' : 'male';
+    const female = genero === 'Fêmea' ? 'female_selecionada' : 'female';
     
     return (
         <View style ={{}}>
@@ -20,13 +25,13 @@ const SeleGen = ({}) => {
               Qual o sexo do Pet?
             </Text>
             <View style={style.seleRaca}>
-                <Pressable style={style.botao} onPress={ () => setGen('male')}>
+                <TouchableOpacity style={style.botao} onPress={ () => handlePress('Macho')}>
                     <Image source={icons[male]} style={style.img}/>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable style={style.botao} onPress={ () => setGen('female')}>
+                <TouchableOpacity style={style.botao} onPress={ () => handlePress('Fêmea')}>
                     <Image source={icons[female]} style={style.img}/>
-                </Pressable>
+                </TouchableOpacity>
             </View>
         </View>
     );

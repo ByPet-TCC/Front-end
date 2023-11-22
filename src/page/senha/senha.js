@@ -4,8 +4,21 @@ import IndexStyle from '../../style';
 
 import TextFormulario from '../../component/formulario/textform';
 import SenhaStyle from '../../style/senha';
+import { sendPasswordResetEmail } from 'firebase/auth';
+import { auth } from '../../services/firebase/firebaseConfig';
 
 const Senha = ({navigation}) => {
+    const [email, setEmail] = useState('');
+
+    const redefinirSenha = async (email) => {
+        try {
+            await sendPasswordResetEmail(auth, email);
+            console.log ('Email de redefinição de senha foi enviado com sucesso')
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     return(
         <View style={SenhaStyle.content}>
             <View style={SenhaStyle.conteudo}>
@@ -21,9 +34,11 @@ const Senha = ({navigation}) => {
                 <TextFormulario
                     texto={'E-mail ou usuários'}
                     espaço={'Bypet@email.com'}
+                    valor={email}
+                    onChangeText={(email) => setEmail(email)}
                 />
                 <View style={SenhaStyle.botao}>
-                    <Pressable style={SenhaStyle.bottomEnviar}>
+                    <Pressable style={SenhaStyle.bottomEnviar} onPress={redefinirSenha}>
                         <Text style={SenhaStyle.textEnviar}>
                             Enviar
                         </Text>
