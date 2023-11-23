@@ -16,8 +16,7 @@ const SeletorPerfil = ({ setUriImagem }) => {
         allowsEditing: true,
         aspect: [3, 4],
         quality: 1
-      });
-  
+      }); 
       if (!result.canceled) {
         handlePress(result.uri);
       }

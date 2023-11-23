@@ -9,7 +9,6 @@ import SeletorPerfil from '../../component/inputFoto/inputFoto';
 import { getAuth } from 'firebase/auth';
 import { db, storage } from '../../services/firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore/lite';
-import { firebase } from '@react-native-firebase/auth';
 
 const CadastroPet = ({navigation}) => {
   function aleta () {
@@ -18,7 +17,7 @@ const CadastroPet = ({navigation}) => {
   
   const auth = getAuth();
   const user = auth.currentUser
-  const uid = firebase.auth().currentUser.uid;
+  const uid = user.uid;
 
   const [nomePet, setNomePet] = useState('');
   const [especie, setEspecie] = useState('');
@@ -29,23 +28,25 @@ const CadastroPet = ({navigation}) => {
   const [descr, setDescr] = useState ('');
   const [imagem, setImagem] = useState(null);
 
-  async function Salvar () {
+  async function Salvar() {
     try {
-        const docRef = await addDoc(uid) (collection(db, 'pet'), {
-          Pet: nomePet,
-          especie: especie,
-          raca: raca,
-          genero: genero,
-          rga: rga,
-          idade: idade,
-          descricao: descr,
-          imagem: imagem,
-        })
-        console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-        console.error("Error adding document: ", e);
-      }
+      const docRef = await addDoc(collection(db, 'pet'), {
+        uid: uid,
+        Pet: nomePet,
+        especie: especie,
+        raca: raca,
+        genero: genero,
+        rga: rga,
+        idade: idade,
+        descricao: descr,
+        imagem: imagem,
+      });
+  
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
     }
+  }
 
     return(
         <ScrollView style={CadastroStyle.content}>
