@@ -6,7 +6,7 @@ const SeleEspecie = ({ seleEspecie }) => {
 
     const handlePress = (novaEspecie) => {
         setEspecie(novaEspecie);
-        seleEspecie(novaEspecie);
+        selewEspecie(novaEspecie);
       };
 
     const icons = {

@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image, } from 'react-native';
+import { Text, View, TouchableOpacity, Image, Pressable, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
-import { auth } from '../../services/firebase/firebaseConfig';
+import { auth, db } from '../../services/firebase/firebaseConfig';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, updateProfile} from "firebase/auth";
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
+import { doc, setDoc } from 'firebase/firestore/lite';
 
 function Cadastro ({ fechar }) {
     const navigation = useNavigation('');
@@ -16,6 +17,8 @@ function Cadastro ({ fechar }) {
     const [senha, setSenha] = useState("");
     const [senha1, setSenha1] = useState("");
 
+    const [visivel, setVisivel] = useState(true)
+
     async function cadastrar() {
         if(novoNome === '' || email === '' || senha === '' || senha1 === '') {
             alert ('É preciso preencher todos os campos!')
@@ -24,21 +27,23 @@ function Cadastro ({ fechar }) {
         if (senha !== senha1) {
             alert ("As senhas não são iguais.")
             return;
-        } else {                
-            const resultado = await createUserWithEmailAndPassword( auth, email, senha )
-            try {
-                const auth = getAuth();
-                onAuthStateChanged(auth, (user) =>{
-                    if (user) {
-                        updateProfile(user, {
-                          displayName: novoNome,
-                        })
-                    }
-                })
+        } else {  
+            createUserWithEmailAndPassword(auth, email, senha)
+            .then((userCredential) => {
+                // O usuário foi criado e está logado.
+                const user = userCredential.user;
+
+                // Armazene as informações do usuário no Firestore.
+                setDoc(doc(db, 'users', user.uid), {
+                name: novoNome,
+                email: email,
+                });
                 navigation.navigate('Home')
-            } catch (e) { 
-                console.error(e)
-            }
+            })
+            .catch((error) => {
+                // Trate quaisquer erros aqui.
+                console.error(error);
+            }); 
         }
     }
 
@@ -52,7 +57,6 @@ function Cadastro ({ fechar }) {
 
             <Formulario
                 espaço='Nome'
-                secureTextEntry={false}
                 onChangeText={(novoNome) => setNovoNome(novoNome)}
                 valor={novoNome}
             />
@@ -60,23 +64,26 @@ function Cadastro ({ fechar }) {
             <Formulario
                 espaço='E-mail'
                 tipo= 'email-address'
-                secureTextEntry={false}
                 onChangeText={(email) => setEmail(email)}
                 valor={email}
             />
             <Formulario
                 espaço ='Senha'
-                secureTextEntry={false}
                 onChangeText={(senha) => setSenha(senha)}
                 valor={senha}
+                senha={visivel}
             />
 
             <Formulario
                 espaço='Repita a sua senha'
-                secureTextEntry={false}
                 onChangeText={(senha1) => setSenha1(senha1)}
                 valor={senha1}
+                senha={visivel}
             />
+            
+            <Pressable onPress={() => setVisivel(!visivel)} style={IndexStyle.bVisivel}>
+                {visivel === false ? <Text style={IndexStyle.visiv}>Senha não visivel</Text> : <Text style={IndexStyle.visiv}>Senha visivel</Text>}
+            </Pressable>
 
             <TouchableOpacity style={IndexStyle.button} onPress={() => {cadastrar()}} onPressOut={fechar}>
                 <Text style={IndexStyle.textBtn}>Cadastro</Text>

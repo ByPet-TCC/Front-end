@@ -125,6 +125,16 @@ const IndexStyle =  StyleSheet.create({
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         width: '100%',
         height: '80%'
+    },
+
+    bVisivel: {
+        alignSelf: 'flex-end',
+        margin: 10,
+    },
+
+    visiv: {
+        fontSize: 18,
+        color: '#0FC2BF'
     }
 })
 

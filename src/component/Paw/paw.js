@@ -12,11 +12,11 @@ const Paw = ({ home, calendar, help, config}) => {
                 </Pressable>
 
                 <Pressable style={style.imageCalendar} onPress={calendar}>
-                    <Image source={require('../../../assets/icons/Paw/calendar.png')} style={style.image}/>
+                    <Image source={require('../../../assets/icons/Paw/calendar.png')} style={[style.image, {opacity: .7}]}/>
                 </Pressable>
 
                 <Pressable style={style.imageHelp} onPress={help}>
-                    <Image source={require('../../../assets/icons/Paw/help.png')} style={style.image}/>
+                    <Image source={require('../../../assets/icons/Paw/help.png')} style={[style.image, {opacity: .7}]}/>
                 </Pressable>
 
                 <Pressable style={style.imageConfig} onPress={config}>

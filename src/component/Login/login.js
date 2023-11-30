@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image} from 'react-native';
+import { Text, View, TouchableOpacity, Image, Pressable} from 'react-native';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
@@ -48,8 +48,12 @@ function Login ({ forg, fechar }) {
           onChangeText={(novaSenha) => setSenha(novaSenha)}
           senha={visivel}
         />
+  
+        <Pressable onPress={() => setVisivel(!visivel)} style={IndexStyle.bVisivel}>
+          {visivel === false ? <Text style={IndexStyle.visiv}>Senha não visivel</Text> : <Text style={IndexStyle.visiv}>Senha visivel</Text>}
+        </Pressable>
 
-        <TouchableOpacity style={IndexStyle.forget} onPressIn={forg} onPressOut={fechar}>
+        <TouchableOpacity style={IndexStyle.forget} onPress={forg} onPressOut={fechar}>
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
         </TouchableOpacity>
 
