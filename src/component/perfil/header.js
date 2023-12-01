@@ -13,7 +13,7 @@ const Header = ({ nome, idade, modal, descricao, imagem, addImagem, qrcode }) =>
                         </View>
                     </View>
                     <View style={styles.caixaDescricao}>
-                        <Text style={styles.titulo}>{nome}, {idade} anos</Text>
+                        <Text style={styles.titulo}>{nome}, {idade}</Text>
                         <Text style={styles.descricao} numberOfLines={2} ellipsizeMode='tail'>
                             {descricao}
                         </Text>

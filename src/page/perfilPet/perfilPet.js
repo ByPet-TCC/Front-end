@@ -219,10 +219,8 @@ const Perfil = ({ navigation, route }) => {
                 <View style={PerfilStyle.qrCode}>
                     <QRCode 
                         id= 'Qrcode'
-                        value= {`http://localhost:3000/pet/${petId}`}
+                        value= {`https://bypet-qrcode.vercel.app/pet/${petId}`}
                         size={325}
-                        logo= {require('../../../assets/icons/Login/logo.png')}
-                        logoSize={125}
                     />
                 </View>
             </Modal>
