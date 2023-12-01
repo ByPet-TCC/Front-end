@@ -56,6 +56,7 @@ const CadastroStyle = StyleSheet.create ({
         borderRadius: 15,
         backgroundColor: 'rgba(15, 194, 191, 0.2)',
         alignSelf: 'flex-end',
+        marginTop: 35,
         margin: 15,
         justifyContent: 'center',
     },

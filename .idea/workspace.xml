@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="42c9838b-abf5-4c86-9f3e-390ace4686d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Cadastro/cadastro.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Cadastro/cadastro.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Login/login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/Pet/pet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/Pet/pet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/perfil/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/perfil/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/component/perfil/post.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/component/perfil/post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/Test/test.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/Test/test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/cadPet/cadastroPet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/cadPet/cadastroPet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/options/options.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/options/options.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/perfilPet/perfilPet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/perfilPet/perfilPet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/firebase/firebaseConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/firebase/firebaseConfig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/optionsStyle.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/optionsStyle.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2YrBvGN8DUQWAiZTRTWXI88gsBy" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "D:/TCC/bypet"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="42c9838b-abf5-4c86-9f3e-390ace4686d8" name="Changes" comment="" />
+      <created>1701274047816</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1701274047816</updated>
+    </task>
+    <servers />
+  </component>
+</project>

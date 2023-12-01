@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput, Pressable} from 'react-native';
 
-const SeleRaca = ({}) => {
-    const [raca, setRaca] = useState (null);
+const SeleEspecie = ({ seleEspecie }) => {
+    const [especie, setEspecie] = useState (null);
+
+    const handlePress = (novaEspecie) => {
+        setEspecie(novaEspecie);
+        seleEspecie(novaEspecie);
+      };
 
     const icons = {
         dog: require('../../../assets/icons/dog/dog.png'),
@@ -15,32 +20,32 @@ const SeleRaca = ({}) => {
         rabit_selecionada: require('../../../assets/icons/rabit/rabit_selecionada.png'),
       };
 
-    const dog = raca === 'dog' ? 'dog_selecionada' : 'dog';
-    const cat = raca === 'cat' ? 'cat_selecionada' : 'cat';
-    const hamster = raca === 'hamster' ? 'hamster_selecionada' : 'hamster';
-    const rabit = raca === 'rabit' ? 'rabit_selecionada' : 'rabit';
+    const dog = especie === 'Cachorro' ? 'dog_selecionada' : 'dog';
+    const cat = especie === 'Gato' ? 'cat_selecionada' : 'cat';
+    const hamster = especie === 'Hamster' ? 'hamster_selecionada' : 'hamster';
+    const rabit = especie === 'Coelho' ? 'rabit_selecionada' : 'rabit';
     
     return (
         <View style ={{}}>
             <Text style={style.TextoPerg}>
               Selecione a especie
             </Text>
-            <View style={style.seleRaca}>
-                <Pressable style={style.botao} onPress={ () => setRaca('dog')}>
+            <View style={style.seleEspecie}>
+                <TouchableOpacity style={style.botao} onPress={ () => handlePress('Cachorro')}>
                     <Image source={icons[dog]} style={style.img}/>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable style={style.botao} onPress={ () => setRaca('cat')}>
+                <TouchableOpacity style={style.botao} onPress={ () => handlePress('Gato')}>
                     <Image source={icons[cat]} style={style.img}/>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable style={style.botao} onPress={ () => setRaca('hamster')}>
+                <TouchableOpacity style={style.botao} onPress={ () => handlePress('Hamster')}>
                     <Image source={icons[hamster]} style={style.img}/>
-                </Pressable>
+                </TouchableOpacity>
 
-                <Pressable style={style.botao} onPress={ () => setRaca('rabit')}>
+                <TouchableOpacity style={style.botao} onPress={ () => handlePress('Coelho')}>
                     <Image source={icons[rabit]} style={style.img}/>
-                </Pressable>
+                </TouchableOpacity>
             </View>
         </View>
     );
@@ -55,7 +60,7 @@ const style = StyleSheet.create ({
         marginTop: 15
     },
 
-    seleRaca: {
+    seleEspecie: {
         padding: 15,
         display: 'flex',
         flexDirection: 'row',
@@ -79,4 +84,4 @@ const style = StyleSheet.create ({
     },
 })
 
-export default SeleRaca;
+export default SeleEspecie;

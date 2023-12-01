@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet, modal} from 'react-native';
-
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 const NovoPet = ({ nomePet, fotoPet, perfil, vacina }) => {
     const [visivel, setVisivel] = useState(false);
+    const [imagemUrl, setImageUrl] = useState(null)
 
+    useEffect(() => {
+        const fetchImage = async () => {
+          const storage = getStorage();
+          const imageRef = ref(storage, fotoPet)
+
+          try {
+            getDownloadURL(imageRef).then((uri) => {
+                setImageUrl(uri);
+            })
+
+          } catch (error) {
+            console.error("Erro ao obter a URL da imagem:", error);
+          }
+        };
+    
+        fetchImage();
+      }, [fotoPet]);
+      
         return (
             <View style={style.view}>
-                <Pressable onPress={() => setVisivel(!visivel)} activeOpacity={1}>
-                    <ImageBackground style={[style.pet, style.sombra]} source={fotoPet} />
+                <Pressable style={style.pet} onPress={() => setVisivel(!visivel)} activeOpacity={1}>
+                    <ImageBackground style={style.image} source={{uri: imagemUrl }} />
                 </Pressable>
 
                 {visivel && (
@@ -39,11 +58,16 @@ const style = StyleSheet.create ({
         
     },
 
+    image:{
+        width: '100%',
+        height: '100%'
+    },
+
     pet: {
         width: 140,
         height: 172,
-        borderRadius: 10,
-        borderWidth: .2
+        borderRadius: 15,
+        overflow: 'hidden'
     },
 
     petOn: {
@@ -65,6 +89,7 @@ const style = StyleSheet.create ({
     },
 
     textPet: {
+        color: 'white',
         textAlign: 'center',
         fontWeight: 'bold',
         fontSize: 25,

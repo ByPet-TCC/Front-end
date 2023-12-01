@@ -52,7 +52,14 @@ const PerfilStyle = StyleSheet.create ({
 
     text: {
         fontSize: 20,
-    }
+    },
+
+    qrCode: {
+        height: '100%',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
 })
 
 export default PerfilStyle;

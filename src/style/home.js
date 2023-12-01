@@ -8,21 +8,23 @@ const HomeStyle = StyleSheet.create ({
     },
 
     desenho: {
-        borderWidth: 1,
         display: 'flex',
-        position: 'relative',
         width: '100%',
         height: 600,
         borderBottomRightRadius: 80,
         borderBottomLeftRadius: 80
     },
 
+    wallpaper: {
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        position: 'absolute'
+    },
+
 
     perfil: {
         display: 'flex',
-        backgroundColor: 'white',
-        borderWidth: 2,
-        borderRadius: 60,
         width: 140,
         height: 180,
         justifyContent: 'center',
@@ -133,7 +135,37 @@ const HomeStyle = StyleSheet.create ({
     scrollView: {
         marginBottom: 200,
         overflow: 'visible'
+    },
+
+    modal: {
+        backgroundColor: 'rgba(0, 0, 0, 0.15)',
+        height: '80%'
+    },
+
+    viewModal: {
+        bottom: 0,
+        height: '20%',
+        backgroundColor: 'rgba(255, 255, 255, .90)',
+        justifyContent: 'center'
+    },
+
+    bottomModal: {
+        marginVertical: 5,
+        alignSelf: 'center',
+        backgroundColor: 'rgba(15, 194, 191, 1)',
+        width: '95%',
+        justifyContent: 'center',
+        height: 50,
+        borderRadius: 10
+    },
+
+    textModal: {
+        color: 'white',
+        fontSize: 25,
+        alignSelf: 'center',
+        fontWeight: 'bold'
     }
+
 });
 
 export default HomeStyle;

@@ -1,18 +1,70 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Text, View, Image, Modal, TouchableOpacity, ScrollView} from 'react-native';
 import OptionsStyle from '../../style/optionsStyle';
 import MenuOpcoes from '../../component/opcoes/opcoes';
+import { useNavigation } from '@react-navigation/native';
 
-const Config = ({navigation}) => {
-    const [modal, setModal] = useState(false);
+import { getAuth, signOut } from 'firebase/auth';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../../services/firebase/firebaseConfig';
+import { doc, getDoc } from 'firebase/firestore/lite';
+
+const Config = ({ }) => {
+        const navigation = useNavigation();
+    
+        const auth = getAuth();
+        const user = auth.currentUser
+        const uid = user ? user.uid : null;
+    
+        const [name, setName] = useState('');
+        const [email, setEmail] = useState('');
+        const [image, setImage] = useState(null);
+    
+        const refPerfil = uid ? ref(storage, `${uid}/fotoUser/foto-perfil.png`) : null;
+    
+        async function Logout () {
+            try {
+                await signOut(auth);
+                console.log('Usuário deslogado com sucesso!');
+                navigation.navigate('Index')
+              } catch (error) {
+                console.error(error);
+              }
+        }
+    
+        useEffect(() => {
+            if (uid) {
+                    getDownloadURL(refPerfil).then((url) => {
+                    setImage(url);
+                })
+            }
+        }, [uid]);
+    
+        if (user) {
+            const docRef = doc(db, 'users', user.uid);
+            getDoc(docRef).then((docSnapshot) => {
+              if (docSnapshot.exists()) {
+                const data = docSnapshot.data();
+                setName(data.name)
+                setEmail(data.email)
+              } else {
+              }
+            }).catch((error) => {
+              console.log("Erro ao obter o documento:", error);
+            });
+        }
+    
+        const [modal, setModal] = useState(false);
 
     return(
         <View style={OptionsStyle.wall}>
             <View style={OptionsStyle.header}>
-                <Image style={OptionsStyle.perfil}/>
+                <View style={OptionsStyle.perfil}>
+                    <Image style={{width: '100%', height: '100%'}} source={{uri: image}}/>
+                </View>
                 <View style={OptionsStyle.cabecalho}>
-                    <Text style={OptionsStyle.nome}>Nome Usuario</Text>
-                    <Text style={OptionsStyle.email}>Email Usuario</Text>
+                    <Text style={OptionsStyle.nome}>{name}</Text>
+                    <Text style={OptionsStyle.email}>{email}</Text>
                 </View>
             </View>
             <ScrollView style={OptionsStyle.content}>
@@ -55,7 +107,7 @@ const Config = ({navigation}) => {
                                 Não
                             </Text>
                         </TouchableOpacity>
-                        <TouchableOpacity style={OptionsStyle.sairPopup} onPress={() => navigation.navigate('Index')} onPressOut={() => setModal(false)}>
+                        <TouchableOpacity style={OptionsStyle.sairPopup} onPress={Logout} onPressOut={() => setModal(false)}>
                             <Text style={OptionsStyle.sairTexto}>
                                 Sim
                             </Text>

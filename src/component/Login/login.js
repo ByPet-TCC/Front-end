@@ -1,16 +1,33 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image} from 'react-native';
+import { Text, View, TouchableOpacity, Image, Pressable} from 'react-native';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import IndexStyle from '../../style';
 import Formulario from '../formulario/formulario';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../services/firebase/firebaseConfig';
 
 
-const Login = ({ nav, forg, fechar}) => {
+function Login ({ forg, fechar }) {
+  const navigation = useNavigation()
 
   const [email, setEmail] = useState ('');
   const [senha, setSenha] = useState ('');
-  const [visivel, setVisivel] = useState(true)
+  const [visivel, setVisivel] = useState(true);
+
+
+  async function logar() {
+    if (email === '' || senha === '') {
+      alert ('Algum campo esta vazio')
+      return;
+    } else {
+        const resultado = await signInWithEmailAndPassword(auth, email, senha)
+
+         navigation.navigate('Home')
+        // console.log(resultado)
+    }
+  }
 
     return (
       <View style={IndexStyle.contentLogin}>
@@ -22,6 +39,7 @@ const Login = ({ nav, forg, fechar}) => {
           espaço='E-mail'
           valor={email}
           onChangeText={(novoEmail) => setEmail(novoEmail)}
+          tipo= 'email-address'
         />
 
         <Formulario
@@ -30,29 +48,33 @@ const Login = ({ nav, forg, fechar}) => {
           onChangeText={(novaSenha) => setSenha(novaSenha)}
           senha={visivel}
         />
+  
+        <Pressable onPress={() => setVisivel(!visivel)} style={IndexStyle.bVisivel}>
+          {visivel === false ? <Text style={IndexStyle.visiv}>Senha não visivel</Text> : <Text style={IndexStyle.visiv}>Senha visivel</Text>}
+        </Pressable>
 
-        <TouchableOpacity style={IndexStyle.forget} onPressIn={forg} onPressOut={fechar}>
+        <TouchableOpacity style={IndexStyle.forget} onPress={forg} onPressOut={fechar}>
             <Text style={IndexStyle.forgetText}>Esqueci minha senha</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={IndexStyle.button} onPressIn={nav} onPressOut={fechar}>
+        <TouchableOpacity style={IndexStyle.button} onPress={logar} onPressOut={fechar}>
             <Text style={IndexStyle.textBtn}>Entrar</Text>
         </TouchableOpacity>
 
         <Text style={IndexStyle.textIcon}>Ou faça login com:</Text>
 
         <View style={IndexStyle.logos}>
-                  <TouchableOpacity>
+                  {/* <TouchableOpacity>
                       <Image source={require('../../../assets/icons/Login/icon_facebook.png')} style={IndexStyle.logoEx} />
-                   </TouchableOpacity>
+                   </TouchableOpacity> */}
 
                   <TouchableOpacity>
                       <Image source={require('../../../assets/icons/Login/icon_google.png')} style={IndexStyle.logoEx}/>
                   </TouchableOpacity>
 
-                  <TouchableOpacity>
+                  {/* <TouchableOpacity>
                     <Image source={require('../../../assets/icons/Login/icon_twitter.png')} style={IndexStyle.logoEx}/>
-                  </TouchableOpacity>
+                  </TouchableOpacity> */}
               </View>
       </View>
     );

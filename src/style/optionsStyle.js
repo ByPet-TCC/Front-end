@@ -28,7 +28,8 @@ const OptionsStyle =  StyleSheet.create({
             width: 65,
             borderWidth: .75,
             borderColor: 'black',
-            borderRadius: 150
+            borderRadius: 150,
+            overflow: 'hidden'
         },
         
         nome: {
@@ -87,7 +88,7 @@ const OptionsStyle =  StyleSheet.create({
             margin: 25
         },
 
-        cancelarPopup: {
+        cancelarPopup: {            
             paddingVertical: 10,
             paddingHorizontal: 65
         },

@@ -3,8 +3,7 @@ import {Text, View, Image, ImageBackground, StyleSheet, Pressable, TouchableHigh
 import IndexStyle from '../../style';
 
 import Login from '../../component/Login/login';
-import Cadastro from '../../component/Cadastro/cadastro';
-
+import Cadastro from '../../component/Cadastro/cadastro'
 
 // Inicialização da tela de Login/Cadastro
 const Index = ({navigation}) => {
@@ -42,7 +41,6 @@ const Index = ({navigation}) => {
                 }}><Text/></Pressable>
                 <Login
                   forg={() => navigation.navigate('Senha')}
-                  nav={() => navigation.navigate('Home')}
                   fechar={() => setModalLogin(false)}
                 />
 
@@ -59,7 +57,6 @@ const Index = ({navigation}) => {
                 }}><Text/></Pressable>
                 <Cadastro
                   fechar={() => setModalCadastro(false)}
-                  nav={() => navigation.navigate('Home')}
                 />
               </Modal>
             </View>
