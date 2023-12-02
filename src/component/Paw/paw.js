@@ -1,35 +1,45 @@
+// Importando os módulos necessários do React Native
 import React, { useState } from 'react';
 import {Text, View, Pressable, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
 import Animated, { useSharedValue, useAnimatedStyle, withTiming } from 'react-native-reanimated';
 
+// Componente Paw
 const Paw = ({ home, calendar, help, config}) => {
+    // Definindo o estado inicial do menu
     const [on, setOn] = useState(false);
 
+    // Retornando o componente Paw
     return(
         <View style={style.paw}>
-                <Pressable style={style.imageHome} onPress={home}>
-                    <Image source={require('../../../assets/icons/Paw/home.png')} style={style.image}/>
-                </Pressable>
+            {/* Botão Home */}
+            <Pressable style={style.imageHome} onPress={home}>
+                <Image source={require('../../../assets/icons/Paw/home.png')} style={style.image}/>
+            </Pressable>
 
-                <Pressable style={style.imageCalendar} onPress={calendar}>
-                    <Image source={require('../../../assets/icons/Paw/calendar.png')} style={[style.image, {opacity: .7}]}/>
-                </Pressable>
+            {/* Botão Calendário */}
+            <Pressable style={style.imageCalendar} onPress={calendar}>
+                <Image source={require('../../../assets/icons/Paw/calendar.png')} style={[style.image, {opacity: .7}]}/>
+            </Pressable>
 
-                <Pressable style={style.imageHelp} onPress={help}>
-                    <Image source={require('../../../assets/icons/Paw/help.png')} style={[style.image, {opacity: .7}]}/>
-                </Pressable>
+            {/* Botão Ajuda */}
+            <Pressable style={style.imageHelp} onPress={help}>
+                <Image source={require('../../../assets/icons/Paw/help.png')} style={[style.image, {opacity: .7}]}/>
+            </Pressable>
 
-                <Pressable style={style.imageConfig} onPress={config}>
-                    <Image source={require('../../../assets/icons/Paw/config.png')} style={style.image}/>
-                </Pressable>
+            {/* Botão Configurações */}
+            <Pressable style={style.imageConfig} onPress={config}>
+                <Image source={require('../../../assets/icons/Paw/config.png')} style={style.image}/>
+            </Pressable>
 
-                <Pressable style={style.imagePaw}>
-                        <Image source={require('../../../assets/icons/Paw/paw.png')} style={style.image}/>
-                </Pressable>
-            </View>
+            {/* Botão Paw */}
+            <Pressable style={style.imagePaw}>
+                <Image source={require('../../../assets/icons/Paw/paw.png')} style={style.image}/>
+            </Pressable>
+        </View>
     )
 };
 
+// Definindo os estilos do componente
 const style = StyleSheet.create({
     paw: {
         width: 150,
@@ -84,4 +94,5 @@ const style = StyleSheet.create({
     },
 })
 
+// Exportando o componente Paw
 export default Paw;

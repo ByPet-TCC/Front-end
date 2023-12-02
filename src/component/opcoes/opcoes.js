@@ -1,17 +1,23 @@
+// Importando os módulos necessários do React Native
 import React, { useState } from 'react';
 import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput, Pressable} from 'react-native';
 
+// Componente MenuOpcoes
 const MenuOpcoes = ({ icone, titulo, conteudo }) => {
+    // Definindo o estado inicial do menu
     const [menuAberto, setMenuAberto] = useState(false);
 
+    // Retornando o componente MenuOpcoes
     return (
         <View style={styles.content}>
+            {/* Botão para abrir/fechar o menu */}
             <Pressable style={styles.accordion} onPress={() => setMenuAberto(!menuAberto)}>
                 {icone}
                 <Text style={styles.titulo}>
                     {titulo}
                 </Text>
             </Pressable>
+            {/* Conteúdo do menu, que é exibido apenas quando o menu está aberto */}
             {menuAberto && <View style={styles.conteudo}>
                 {conteudo}
             </View>}
@@ -19,6 +25,7 @@ const MenuOpcoes = ({ icone, titulo, conteudo }) => {
     )
 };
 
+// Definindo os estilos do componente
 const styles = StyleSheet.create({
     content: {
         width: '95%',
@@ -48,7 +55,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(15, 194, 194, 0.35)',
         justifyContent: 'center',
     },
-
 })
 
+// Exportando o componente MenuOpcoes
 export default MenuOpcoes;

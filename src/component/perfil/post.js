@@ -1,3 +1,4 @@
+// Importando os módulos necessários do React Native
 import React, { useState, useEffect } from 'react';
 import { Text, View, Image, StyleSheet, Dimensions, Modal, Pressable } from 'react-native';
 import { storage } from '../../services/firebase/firebaseConfig';
@@ -5,28 +6,32 @@ import { ref, getDownloadURL } from 'firebase/storage';
 import { getAuth } from 'firebase/auth';
 import { TouchableOpacity } from 'react-native';
 
+// Obtendo as dimensões da tela
 const { width, height } = Dimensions.get('window');
 
-
+// Componente Post
 const Post = ({ pet, petImg, tutor, fotoPost, deletarPost}) => {
+    // Obtendo a instância de autenticação
     const auth = getAuth();
-    const user = auth.currentUser
+    const user = auth.currentUser;
     const uid = user.uid;
 
-    const [imagemUser, setImagemUser] = useState(null)
-    const [imagemPost, setImagePost] = useState(null)
+    // Definindo o estado inicial das imagens
+    const [imagemUser, setImagemUser] = useState(null);
+    const [imagemPost, setImagePost] = useState(null);
     const refPerfil = ref(storage, `${uid}/fotoUser/foto-perfil.png`);
     const [modalVisivel, setModalVisivel] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
     const options = ['Deletar'];
 
-
+    // Usando o hook useEffect para buscar as imagens
     useEffect(() => {
         const fetchImage = async () => {
             const imageRef = ref(storage, fotoPost);
 
             try {
+                // Obtendo a URL de download da imagem
                 const uri = await getDownloadURL(imageRef);
                 setImagePost(uri);
                 getDownloadURL(refPerfil).then((url) => {
@@ -39,7 +44,7 @@ const Post = ({ pet, petImg, tutor, fotoPost, deletarPost}) => {
         fetchImage();
     }, [fotoPost]);
 
-
+    // Retornando o componente Post
     return (
         <View style={styles.post}>
             <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-between', marginHorizontal: 10 }}>
@@ -119,7 +124,7 @@ const Post = ({ pet, petImg, tutor, fotoPost, deletarPost}) => {
 };
 
 const styles = StyleSheet.create({
-    post: {
+        post: {
         alignSelf: 'center',
         backgroundColor: 'white',
         marginVertical: 5,

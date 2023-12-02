@@ -1,17 +1,23 @@
+// Importando os módulos necessários do React Native
 import React, { useState, useEffect } from 'react';
 import {Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet, modal} from 'react-native';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
+// Componente NovoPet
 const NovoPet = ({ nomePet, fotoPet, perfil, vacina }) => {
+    // Definindo o estado inicial da visibilidade
     const [visivel, setVisivel] = useState(false);
+    // Definindo o estado inicial da URL da imagem
     const [imagemUrl, setImageUrl] = useState(null)
 
+    // Usando o hook useEffect para buscar a imagem
     useEffect(() => {
         const fetchImage = async () => {
           const storage = getStorage();
           const imageRef = ref(storage, fotoPet)
 
           try {
+            // Obtendo a URL de download da imagem
             getDownloadURL(imageRef).then((uri) => {
                 setImageUrl(uri);
             })
@@ -24,35 +30,37 @@ const NovoPet = ({ nomePet, fotoPet, perfil, vacina }) => {
         fetchImage();
       }, [fotoPet]);
       
-        return (
-            <View style={style.view}>
-                <Pressable style={style.pet} onPress={() => setVisivel(!visivel)} activeOpacity={1}>
-                    <ImageBackground style={style.image} source={{uri: imagemUrl }} />
-                </Pressable>
+    // Retornando o componente NovoPet
+    return (
+        <View style={style.view}>
+            <Pressable style={style.pet} onPress={() => setVisivel(!visivel)} activeOpacity={1}>
+                <ImageBackground style={style.image} source={{uri: imagemUrl }} />
+            </Pressable>
 
-                {visivel && (
-                    <View style={style.petOn}>
-                        <View style={style.boxBottom}>
-                            <Text style={style.textPet}> 
-                                {nomePet} 
+            {visivel && (
+                <View style={style.petOn}>
+                    <View style={style.boxBottom}>
+                        <Text style={style.textPet}> 
+                            {nomePet} 
+                        </Text>
+                        <Pressable style={style.bottom} onPress={perfil}>
+                            <Text style={style.textbottom}>
+                                Perfil
                             </Text>
-                            <Pressable style={style.bottom} onPress={perfil}>
-                                <Text style={style.textbottom}>
-                                    Perfil
-                                </Text>
-                            </Pressable>
-                             <Pressable style={style.bottom} onPress={vacina}>
-                                <Text style={style.textbottom}>
-                                    Vacinas
-                                </Text>
-                            </Pressable>
-                        </View>
+                        </Pressable>
+                         <Pressable style={style.bottom} onPress={vacina}>
+                            <Text style={style.textbottom}>
+                                Vacinas
+                            </Text>
+                        </Pressable>
                     </View>
-                )}
-            </View>
-            )
+                </View>
+            )}
+        </View>
+        )
 };
 
+// Definindo os estilos do componente
 const style = StyleSheet.create ({
     view: {
         
@@ -121,4 +129,5 @@ const style = StyleSheet.create ({
     },
 });
 
+// Exportando o componente NovoPet
 export default NovoPet;

@@ -1,22 +1,31 @@
+// Importando os componentes necessários do React e React Native
 import React, { useState, useEffect } from 'react';
 import { Text, View, ScrollView, Pressable, TextInput, Image, ImageBackground, StyleSheet } from 'react-native';
+
+// Importando o estilo do componente CadastroPet
 import CadastroStyle from '../../style/cadastroPet';
 
+// Importando componentes personalizados para o formulário
 import TextFormulario from '../../component/formulario/textform';
 import SeleGen from '../../component/SeleGen/seleGenero';
 import SeleEspecie from '../../component/SeleRaca/seleEspecie';
 import SeletorPerfil from '../../component/inputFoto/inputFoto';
+
+// Importando funções do Firebase para autenticação e armazenamento de dados
 import { getAuth } from 'firebase/auth';
 import { db, storage } from '../../services/firebase/firebaseConfig';
 import { addDoc, collection } from 'firebase/firestore/lite';
 import { ref, uploadBytes } from 'firebase/storage';
 
+// Definindo o componente CadastroPet
 const CadastroPet = ({ navigation }) => {
 
+  // Obtendo o usuário atual do Firebase Auth
   const auth = getAuth();
-  const user = auth.currentUser
+  const user = auth.currentUser;
   const uid = user.uid;
 
+  // Definindo o estado inicial para os campos do formulário
   const [nomePet, setNomePet] = useState('');
   const [especie, setEspecie] = useState('');
   const [raca, setRaca] = useState('');
@@ -26,12 +35,15 @@ const CadastroPet = ({ navigation }) => {
   const [descr, setDescr] = useState('');
   const [imagem, setImagem] = useState(null);
 
+  // Definindo o caminho da imagem no armazenamento do Firebase
   const enderecoImagem = `${uid}/${nomePet}/fotoPerfil/foto-perfil.png`;
 
-  const refImage = ref(storage, enderecoImagem)
+  const refImage = ref(storage, enderecoImagem);
 
+  // Função assíncrona para salvar os dados do pet no Firestore e a imagem no Firebase Storage
   async function Salvar() {
     try {
+      // Adicionando um novo documento à coleção 'pet' no Firestore
       const docRef = await addDoc(collection(db, 'pet'), {
         uid: uid,
         Pet: nomePet,
@@ -45,24 +57,26 @@ const CadastroPet = ({ navigation }) => {
         imagem: imagem,
       });
 
+      // Convertendo a imagem em um blob para upload
       const response = await fetch(imagem);
       const blob = await response.blob();
 
-      // Faça o upload do Blob
+      // Fazendo o upload do blob para o Firebase Storage
       uploadBytes(refImage, blob)
         .then((snapshot) => {
           console.log('Upload a blob or file!')
         }).catch((error) => {
           console.log(error.message);
-        })
+        });
 
       console.log("Document written with ID: ", docRef.id);
-      navigation.goBack()
+      navigation.goBack();
     } catch (e) {
       console.error("Error adding document: ", e);
     }
   }
 
+  // Renderizando o componente
   return (
     <ScrollView style={CadastroStyle.content}>
       <View style={CadastroStyle.CaixaBranca}>
@@ -144,4 +158,5 @@ const CadastroPet = ({ navigation }) => {
   )
 }
 
+// Exportando o componente CadastroPet
 export default CadastroPet;

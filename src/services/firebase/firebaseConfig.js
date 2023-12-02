@@ -1,13 +1,11 @@
-// Import the functions you need from the SDKs you need
+// Importando as funções necessárias dos SDKs que você precisa
 import { initializeApp } from "firebase/app";
-import { getAuth, initializeAuth, getReactNativePersistence, signOut } from 'firebase/auth'
-import { getFirestore, collection, getDocs, addDoc} from 'firebase/firestore/lite';
-import { getStorage } from 'firebase/storage'
+import { getAuth, initializeAuth, getReactNativePersistence, signOut } from 'firebase/auth';
+import { getFirestore, collection, getDocs, addDoc } from 'firebase/firestore/lite';
+import { getStorage } from 'firebase/storage';
 import AsyncStorage from "@react-native-async-storage/async-storage";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Sua configuração do aplicativo web Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyDO_Yrwl99xiIh4igO-vs3Qf0Yzd2F1-ls",
   authDomain: "bypet-api.firebaseapp.com",
@@ -18,13 +16,16 @@ const firebaseConfig = {
   measurementId: "G-LS2W4CMKE7",
 };
 
-// Initialize Firebase
-
+// Inicializando o Firebase
 const app = initializeApp(firebaseConfig);
-export const auth = initializeAuth(app,{ 
-  persistence:
-getReactNativePersistence(AsyncStorage) }
-  )
+
+// Inicializando a autenticação e definindo a persistência
+export const auth = initializeAuth(app, { 
+  persistence: getReactNativePersistence(AsyncStorage) 
+});
+
+// Inicializando o Firestore
 export const db = getFirestore(app);
 
+// Inicializando o Storage
 export const storage = getStorage(app);

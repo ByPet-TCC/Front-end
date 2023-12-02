@@ -1,15 +1,20 @@
+// Importando os módulos necessários do React Native
 import React, { useState, useEffect } from 'react';
-import { Image, View, Text , TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, TouchableOpacity, Image, ImageBackground, StyleSheet, TextInput} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 
+// Componente SeletorPerfil
 const SeletorPerfil = ({ setUriImagem }) => {
+  // Definindo o estado inicial da imagem
   const [image, setImage] = useState(null);
 
+  // Função para lidar com a seleção da imagem
   const handlePress = (image) => {
     setImage(image);
     setUriImagem(image);
   };
 
+  // Função para abrir a biblioteca de imagens e permitir que o usuário selecione uma foto
   const takePhoto = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -22,10 +27,13 @@ const SeletorPerfil = ({ setUriImagem }) => {
       }
   };
 
+  // Retornando o componente SeletorPerfil
   return (
     <View style={style.content}>
         <Text style={style.title}>Foto de Perfil</Text>
-            {image === null ? <Image source={require('../../../assets/icons/addPicture/addPicture.png')} style={style.perfil} /> :  <View>{image && <Image source={{ uri: image }} style={style.perfil} /> }</View>}
+        {/* Exibindo a imagem selecionada ou a imagem padrão se nenhuma imagem foi selecionada */}
+        {image === null ? <Image source={require('../../../assets/icons/addPicture/addPicture.png')} style={style.perfil} /> :  <View>{image && <Image source={{ uri: image }} style={style.perfil} /> }</View>}
+        {/* Botão para abrir a biblioteca de imagens */}
         <TouchableOpacity style={style.bottom} onPress={takePhoto}>
         <Text style={style.text}>
             Carregar
@@ -35,6 +43,7 @@ const SeletorPerfil = ({ setUriImagem }) => {
   );
 }
 
+// Definindo os estilos do componente
 const style = StyleSheet.create ({
     content: {
         flex: 1,
@@ -68,4 +77,5 @@ const style = StyleSheet.create ({
     },
 })
 
+// Exportando o componente SeletorPerfil
 export default SeletorPerfil;

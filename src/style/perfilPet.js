@@ -10,7 +10,7 @@ const PerfilStyle = StyleSheet.create ({
     },
 
     content: {
-        height: '30%',
+        height: 350,
         width: '80%',
         backgroundColor: 'white',
         alignSelf: 'center',
